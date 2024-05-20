@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    background: linear-gradient(to left, #5c5c74, #3D3D60);
+    background-color: #3D3D60;
+    height: 40px;
+    align-items: center;
+    font-size: 14px;
+}
+
+nav h1 {
+    margin: 0 0 0 20px;
+}
+
+nav a {
+    color: #F0EDE4;
+    text-decoration: none;
+    padding: 0 5px;
+    transition: 0.5s ease;
+}
+
+nav a:hover {
+    color: #FFF;
+}
+
+.nav-list {
+    display: flex;
+    list-style-type: none;
+    text-align: center;
+    font-size: 12px;
+}
+
+.nav-list li {
+    padding: 0 5px
+}

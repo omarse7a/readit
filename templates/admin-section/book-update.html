@@ -1,0 +1,58 @@
+{% extends 'parts/navbar.html' %}
+
+
+{% block navlist %}
+<li><a href="{% url 'book_list' %}">View books</a></li>
+<li><a href="Admin Section/add-books.html">Add book</a></li>
+<li><a href="Admin Section/admin-dashboard.html">Dashboard</a></li>
+{% endblock navlist %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/book_details_style.css' %}">
+<div class="container">
+    <section id="main-sec">
+        <div class="book-cover">
+            <img src="{{book.cover.url}}" alt="book-cover">
+        </div>
+        <div class="book-data">
+            <div>
+                <label><strong>Title:</strong></label>
+                <input type="text" id="title" class="small-input" value="{{book.title}}">
+            </div>
+            <div>
+                <label><strong>Author:</strong></label>
+                <input type="text" id="author" class="small-input" value="{{book.author}}">
+            </div>
+
+            <div>
+                <label><strong>Category:</strong></label>
+                <input type="text" id="category" class="small-input" value="{{book.category}}">
+            </div>
+            <div>
+                <label><strong>Number of pages:</strong></label>
+                <input type="number" id="no_of_pages" class="small-input" value="{{book.no_of_pages}}">
+            </div>
+            <div>
+                <label><strong>Language:</strong></label>
+                <input type="text" id="language" class="small-input" value="{{book.language}}">
+            </div>
+            <div>
+                <label><strong>Description:</strong></label>
+                <textarea id="description" class="large-input">{{book.description}}</textarea>
+            </div>
+
+            <div>
+                <label><strong>Price:</strong></label>
+                <input type="number" id="price" class="small-input" value="{{book.price}}">
+            </div>
+
+            <div class="alter">
+                <button class="button edit">Edit</button>
+                <button class="button delete">Delete</button>
+            </div>
+        </div>
+    </section>
+</div>
+<script src="{% static 'js/book_update.js' %}"></script>
+{% endblock content %}

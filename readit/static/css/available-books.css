@@ -1,0 +1,241 @@
+:root {
+    --purple: #3d3d60;
+    --border: .1rem solid rgba(0, 0, 0, 0.1);
+    --border-hover: .1rem solid var(--purple);
+    --teal: #3e5058;
+    --gypsum: #efede4;
+    --grey: #555358;
+}
+
+::selection {
+    color: var(--teal)
+}
+
+body {
+    background: var(--gypsum);
+    font-family: 'Helvetica Neue', Ubuntu, Cantarell;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.heading::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 0.01rem;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: -1;
+}
+
+.heading span {
+    font-size: 3rem;
+    padding: .5rem 2rem;
+    color: var(--purple);
+    background: var(--gypsum);
+}
+
+.swiper {
+    margin-left: 350px;
+    /* Adjust based on the width of the sidebar */
+    transition: margin-left 0.3s ease;
+    transform: scale(0.75);
+    transform-origin: top left;
+    width: 133.33%;
+    /* Compensate for the scaled width */
+    /* Compensate for the scaled height */
+    overflow: hidden;
+}
+
+.swiper-wrapper {
+    box-sizing: border-box;
+}
+
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 25px;
+    border-radius: .5rem;
+    color: #fff;
+    background: var(--teal);
+    font-size: 1.7rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background-color: var(--purple);
+}
+
+.bx {
+    color: var(--purple);
+}
+
+.featured-slider .box .content {
+    box-sizing: border-box;
+
+}
+
+.featured-slider .box .content h3 {
+    height: 50px;
+    /* Set a fixed height for the h3 element */
+    margin: 0;
+    /* Reset margin to ensure proper alignment */
+    font-size: 25px;
+}
+
+.featured-slider .box .content #author {
+    color: var(--teal);
+    font-style: italic;
+
+}
+
+[status="Available"] {
+    color: green;
+}
+
+/* Style for unavailable */
+[status="Unavailable"] {
+    color: red;
+}
+
+.featured-slider .box .content .status {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.featured-slider .box .content .btn {
+    text-decoration: none;
+}
+
+.featured-slider .box {
+    height: 100%;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+    border: var(--border);
+    text-align: center;
+    transform: translateX(100px);
+}
+
+/*.featured-slider .box{
+    width: 25rem;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+    border: var(--border);
+    text-align: center;
+}*/
+
+.featured-slider .box:hover {
+    border: var(--border-hover);
+    /*makes it glow black when u hover*/
+}
+
+.featured-slider .box .image {
+    padding: 1rem;
+    background: linear-gradient(15deg, var(--gypsum), white);
+}
+
+.featured-slider .box .image img {
+    height: 25rem;
+    width: 15rem;
+    border-radius: 1rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.7s ease-in-out;
+}
+
+.featured-slider .box:hover .image {
+    transform: translateY(6rem);
+}
+
+/*.featured-slider .box .icons{
+    padding-bottom: var(--border-hover);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background: white;
+    font-size: 2rem;
+}*/
+.featured-slider .box .icons {
+    font-size: 200%;
+    border-bottom: var(--border-hover);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--gypsum);
+    z-index: 1;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.featured-slider .swiper-wrapper .box:hover .icons {
+    transform: translateY(0%)
+}
+
+.featured-slider .swiper-slide .box .icons a {
+    text-decoration: none;
+    color: var(--teal);
+    font-size: 2.2rem;
+    padding: 1.3rem 1.5rem;
+}
+
+.featured-slider .swiper-slide .box .icons a:hover {
+    background: var(--purple);
+    color: var(--gypsum);
+}
+
+.featured-slider .swiper-slide .box .content {
+    background: var(--gypsum);
+    padding: 0;
+}
+
+.featured-slider .box .content h3 {
+    font-size: 2rem;
+    color: var(--purple);
+}
+
+.featured-slider .box .content .price {
+    font-size: 2.2rem;
+    color: var(--purple);
+    padding-top: 1rem;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    border: var(--border-hover);
+    font-size: 120%;
+    height: 4rem;
+    width: 4rem;
+    color: black;
+    background: var(--gypsum);
+
+}
+
+.swiper-button-next::before,
+.swiper-button-prev::before {
+
+    font-size: 2rem;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 2rem;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: var(--purple);
+    color: var(--gypsum);
+
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>readit</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="icon" href=" {% static 'images/icon.svg' %}">
+    {% block headarea %}
+    {% endblock headarea %}
+</head>
+
+<body>
+    <nav>
+        <h1><a href="">readit</a></h1>
+        <ul class="nav-list">
+            {% block navlist %}
+            {% endblock navlist %}
+        </ul>
+    </nav>
+    {% block content %}
+    {% endblock content %}
+</body>
+
+</html>
