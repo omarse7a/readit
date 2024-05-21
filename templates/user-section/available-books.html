@@ -1,32 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Readit | Available Books</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="../../css/available-books.css">
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="../../css/book_details_style.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+{% extends 'parts/navbar.html' %}
 
-</head>
-<body>
-    <nav>
-        <h1><a href="Home.html">readit</a></h1>
-        <ul class="nav-list">
-        </ul>
-    </nav>
-<section class = "available" id = "available">
-    <h1 class = "heading"> <span>Available Books</span></h1>
-    <div class = "swiper featured-slider">
-        <div class = "swiper-wrapper">
+{% block headarea %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/available-books.css' %}"">
+<script src=" https://unpkg.com/swiper/swiper-bundle.min.js">
+</script>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
+{% endblock headarea %}
+
+{% block navlist %}
+<li><a href="{% url 'view_books' %}">View books</a></li>
+<li><a href="Admin Section/add-books.html">Add book</a></li>
+<li><a href="Admin Section/admin-dashboard.html">Dashboard</a></li>
+{% endblock navlist %}
+
+
+
+{% block content %}
+
+<section class="available" id="available">
+    <h1 class="heading"> <span>Available Books</span></h1>
+    <div class="swiper featured-slider">
+        <div class="swiper-wrapper">
+            {% for book in books %}
+            <div class="swiper-slide">
+                <div class="box">
+                    <div class="icons">
+                        <a href="{% url 'book' book.id %}" class="fas fa-eye" data-book-id="{{book.id}}"></a>
+                    </div>
+                    <div class="image">
+                        <img src="{{book.cover.url}}" alt="{{book.title}} Cover">
+                    </div>
+                    <div class="content">
+                        <div class="author+title">
+                            <h3>{{book.title}}</h3>
+                            <h3 id="author">by {{book.author}}</h3>
+                        </div>
+                        <!-- <div class="status" status="{{book.isAvailable}}">
+                            {{book.isAvailable}}
+                        </div> -->
+                        <!-- <a href="#" class="btn">Add to list</a> -->
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
 </section>
-<script src = "../../js/available-books.js"></script>
-</body>
-</html>
+<script src="{% static 'js/available-books.js' %}"></script>
+
+{% endblock content %}

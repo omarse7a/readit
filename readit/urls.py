@@ -25,5 +25,5 @@ urlpatterns = [
     path('book-manager/', include('manageBooks.urls')),
     path('dashboard/', include('dashboard.urls')),
     path('home/', include('search.urls')),
-    path('viewer/', include('BooksViewer.urls')),
+    path('books/', include('BooksViewer.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
