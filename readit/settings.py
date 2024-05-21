@@ -38,11 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'signUpIn.apps.SignupinConfig',
     'manageBooks.apps.ManagebooksConfig',
     'dashboard.apps.DashboardConfig',
     'search.apps.SearchConfig',
     'BooksViewer.apps.BooksViewerConfig',
+    'authentication.apps.AuthConfig'
 ]
 
 MIDDLEWARE = [
