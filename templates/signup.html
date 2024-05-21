@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="shortcut icon" type="x-icon" href="{% static 'images/icon.svg' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | ReadIt</title>
+
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a id="Home" href="Home.html">readit</a></li>
+    </ul>
+</nav>
+{% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong> Message: </strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endfor %}
+{% load static %}
+<div class="mainWindow">
+    <div class="formWindow">
+
+        <div class="form">
+            <a href="Home.html">
+                <img id="backArrow" src="{% static 'images/back-arrow-navigation-svgrepo-com.svg' %}"
+                     alt="Back to Home Page">
+            </a>
+            <h1 id="signup-header">Sign Up</h1>
+            <p class="login-para">Already a member? <a id="login" href="login">Login Here.</a></p>
+            <form id="signup-form" action="{% url 'signup' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" name="FirstName" placeholder="First Name" required>
+                <input type="text" name="LastName" placeholder="Last Name">
+                <input type="text" name="Username" placeholder="Username" required>
+                <input type="text" name="Email" id="email" placeholder="Email" required>
+                <input type="password" name="Password" id="password" placeholder="Password" required>
+                <input type="password" name="ConfirmPassword" placeholder="Confirm Password" required>
+                <div class="radio">
+                    <input class="radio-input" type="radio" value="Publisher" name="user-type" id="Publisher">
+                    <label class="radio-label" for="Publisher">
+                        <ion-icon name="pencil-outline"></ion-icon>
+                        Publisher</label>
+                    <input class="radio-input" type="radio" value="Customer" name="user-type" id="Customer">
+                    <label class="radio-label" for="Customer">
+                        <ion-icon name="book-outline"></ion-icon>
+                        Customer</label>
+                </div>
+                <input id="submit" type="submit">
+                <br>
+                <span id="error-messages"></span>
+            </form>
+
+
+        </div>
+
+        <div class="imageSlide">
+            <div class="image-container">
+                <img id="slide-1" src="{% static 'images/book.gif' %}" alt="Image 1">
+            </div>
+            <div class="image-para">
+                <p>Join us in unlocking the gateway to endless knowledge and imagination.
+                    Sign up today and embark on a journey of literary adventure at ReadIt!</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</div>
+</body>
+</html>

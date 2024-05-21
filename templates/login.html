@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    {% load static %}
+    <link rel="shortcut icon" type="x-icon" href="{% static 'images/icon.svg' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>Login | ReadIt</title>
+</head>
+
+<body>
+<nav>
+    <ul>
+        <li><a id="Home" href="User Section/Home.html">readit</a></li>
+    </ul>
+</nav>
+<div id="error-messages">
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong> Message: </strong> {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="container" id="container">
+    <div class="form-container log-in">
+        <form id="login-form" action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <h1> Login </h1>
+            <div class="input-box">
+                <label for="username">
+                    <input id="username" type="text" name="Username" placeholder="Username" required>
+                </label>
+                <div class="username-icon"><i class='bx bxs-user'></i></div>
+            </div>
+            <div class="input-box">
+                <label for="password">
+                    <input id="password" type="password" name="Password" placeholder="Password" required>
+                </label>
+                <div class="password-icon"><i class='bx bxs-lock-alt'></i></div>
+            </div>
+            <div class="login button">
+                <button type="submit" class="btn">Log in</button>
+            </div>
+            <div class="register-link">
+                <p>Forgot password? <a href="#">Click here</a></p>
+                <p> Don't have an account? <a href="signup">Sign up</a></p>
+            </div>
+
+        </form>
+
+    </div>
+    <div class="welcome-container">
+        <div class="welcome">
+            <h1> Welcome Back!</h1>
+            <div class="imageSlide">
+                <div class="image-container">
+                    {% load static %}
+                    <img id="slide-1" src="{% static 'images/hk.gif' %}" alt="Image 1">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="{% static 'js/auth.js' %}"></script>
+</body>
+</html>

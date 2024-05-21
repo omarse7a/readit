@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/Home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/fontawesome-free-solid.min.css">
+    <title>readit</title>
+</head>
+<body>
+       <!-- Header -->
+       <div class="header">
+        <div class="container">
+            <h1 class="website-name">readit</h1>
+            <ul class="nav">
+                <li> <a href="" class="active">Home</a></li>
+                <li> <a href="login">Borrowed Books</a></li>
+                <li> <a href="available-books.html">Available Books</a></li>
+                 {% if user.is_authenticated %}
+                <li> <a href="logout" class="sign-in-btn">Log out</a></li>
+                {% else %}
+                <li> <a href="login" class="sign-in-btn">Log in</a></li>
+                {% endif %}
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+    
+    <!-- Search Section -->
+    <!-- Welcome message & search bar with a search button & search by a category radio button ALL WITH A BACKGROUND IMAGE   -->
+       <h3>welcome to readit</h3>
+       {% if user.is_authenticated %}
+       <h3>Hello {{ FirstName }}</h3>
+        <h4>You're successfully logged in</h4>   
+           <button type="submit"><a href="{% url 'logout' %}">Log Out</a></button>
+       {% else %}
+           <button type ="submit"><a href="{% url 'signup' %}">Sign Up</a></button>
+           <button type ="submit"><a href="{% url 'login' %}">Log In</a></button>
+       {% endif %}
+    <div class="search-section">
+        <div class="overlay">
+        <div class="search-section-content">
+            <h1 class="welcome-message"> WELCOME TO ReadIt</h1>
+            <p class="description">Your one-stop shop for digital reading! Discover new authors, revisit classics,
+                 and enjoy a convenient and personalized e-library experience.</p>
+                 <div class="search-bar">
+                 <form id="search-form"> 
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="search-term" name="search" class="shift-placeholder custom-input" placeholder="Search for a book, category, author...">
+                    <button type="submit" class="search-btn">Search</button>
+                     
+                 </form>
+                </div>
+            </div>
+            
+            <div id="search-results-container"></div>
+        </div>
+    </div>
+
+    <!-- Recommended Books Section -->
+    <div class="books-section-header">
+        <h2 class="section-title">Recommended Books</h2>
+        <span class="line"></span>
+    </div>
+    <!-- Books -->
+    <div class="container">
+        <div class="book-section-content">
+          <div class="books-container"></div> </div>
+    </div>   
+</body>
+
+<script src="js/Home.js"> </script>
+</html>
+
+
+
+
