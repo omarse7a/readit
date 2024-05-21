@@ -14,7 +14,6 @@
 
 {% block navlist %}
 <li><a href="{% url 'view_books' %}">View books</a></li>
-<li><a href="Admin Section/add-books.html">Add book</a></li>
 <li><a href="Admin Section/admin-dashboard.html">Dashboard</a></li>
 {% endblock navlist %}
 
@@ -40,9 +39,15 @@
                             <h3>{{book.title}}</h3>
                             <h3 id="author">by {{book.author}}</h3>
                         </div>
-                        <!-- <div class="status" status="{{book.isAvailable}}">
-                            {{book.isAvailable}}
-                        </div> -->
+                        {% if book.isAvailable %}
+                        <div class="status" status="Available">
+                            Available
+                        </div>
+                        {% else %}
+                        <div class="status" status="Unavailable">
+                            Unavailable
+                        </div>
+                        {% endif %}
                         <!-- <a href="#" class="btn">Add to list</a> -->
                     </div>
                 </div>
