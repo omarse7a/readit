@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'manageBooks.apps.ManagebooksConfig',
     'dashboard.apps.DashboardConfig',
-    'search.apps.SearchConfig',
     'BooksViewer.apps.BooksViewerConfig',
     'authentication.apps.AuthConfig'
 ]
