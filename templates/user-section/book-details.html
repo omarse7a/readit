@@ -1,0 +1,56 @@
+{% extends 'parts/navbar.html' %}
+
+{% block headarea %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/book_details_style.css' %}">
+
+{% endblock headarea %}
+
+{% block navlist %}
+<li><a href="{% url 'view_books' %}">View books</a></li>
+<li><a href="../User Section/borrowed-books.html">Dashboard</a></li>
+{% endblock navlist %}
+
+{% block content %}
+
+<div class="container">
+    <section id="main-sec">
+        <div class="book-cover">
+            <img src="{{book.cover.url}}" alt="{{book.title}} cover">
+        </div>
+        <div class="book-data">
+            <h1>{{book.title}}</h1>
+            <div>
+                <label><strong>Author:</strong></label>
+                <p> {{book.author}}</p>
+            </div>
+            <div>
+                <label><strong>Category:</strong></label>
+                <p> {{book.category}}</p>
+            </div>
+            <div>
+                <label><strong>Number of pages:</strong></label>
+                <p> {{book.no_of_pages}}</p>
+            </div>
+            <div>
+                <label><strong>Language:</strong></label>
+                <p> {{book.language}}</p>
+            </div>
+            <div>
+                <label><strong>Description:</strong></label>
+                <p>{{book.description}}</p>
+            </div>
+            <div class="rent">
+                <button class="button">Borrow</button>
+                {% if book.isAvailable %}
+                <p>Status: <small class="available">Available</small></p>
+                {% else %}
+                <p>Status: <small class="unavailable">Unavailable</small></p>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</div>
+<script src="{% static 'js/book_details.js' %}"></script>
+{% endblock content %}

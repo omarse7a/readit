@@ -1,11 +1,8 @@
 from django.urls import path
-from django.conf import settings
-from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-    path('', views.test, name='test'),
-
+    path('', views.view_books, name='view_books'),
+    path("book/<int:book_id>/", views.book_details, name="book"),
 ]
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+

@@ -23,8 +23,8 @@ body {
 }
 
 #main-sec .book-cover img {
-    height: 450px;
-    width: 300px;
+    height: 420px;
+    width: 279px;
     border-radius: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -33,38 +33,41 @@ body {
     flex-basis: 65%;
 }
 
-#main-sec .book-data>div {
-    margin-left: 20px;
-}
-
 #main-sec .book-data h1 {
     color: #3E5158;
-    font-size: 50px;
+    font-size: 30px;
     margin: 0;
 }
 
 
 #main-sec .book-data strong {
     color: #3E5158;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 #main-sec .book-data p {
+    margin: 10px 0;
     display: inline-block;
+    font-size: 14px;
 }
 
 #main-sec .rent,
 #main-sec .alter {
     display: flex;
+    margin-top: 10px;
 }
 
-#main-sec .rent small {
+.available {
     color: #59bd5c;
 }
 
+.unavailable {
+    color: #FF1919;
+}
+
 .button {
-    height: 30px;
-    padding: 8px 15px;
+    height: 35px;
+    padding: 10px 12px;
     margin-right: 10px;
     background-color: #3E5158;
     border: none;
@@ -84,12 +87,12 @@ body {
 }
 
 .button-no-hover {
-    height: 30px;
-    padding: 8px 15px;
+    height: 35px;
+    padding: 10px 12px;
     margin-right: 10px;
     background-color: #3E5158;
     border: none;
-    border-radius: 20px;
+    border-radius: 15px;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -99,13 +102,13 @@ body {
     opacity: 0.6;
 }
 
-.deleted {
-    height: 30px;
-    padding: 8px 15px;
+.delete:hover {
+    height: 35px;
+    padding: 10px 12px;
     margin-right: 10px;
-    background-color: #FF1919;
+    background-color: #e04242;
     border: none;
-    border-radius: 20px;
+    border-radius: 15px;
     color: white;
     text-align: center;
     text-decoration: none;
