@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'manageBooks.apps.ManagebooksConfig',
     'dashboard.apps.DashboardConfig',
     'BooksViewer.apps.BooksViewerConfig',
-    'authentication.apps.AuthConfig'
+    'authentication.apps.AuthConfig',
+    'home.apps.HomeConfig',
+    
 ]
 
 MIDDLEWARE = [

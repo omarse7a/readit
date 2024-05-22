@@ -1,0 +1,220 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: montserrat,sans-serif;
+}
+.container{
+    width: 80%;
+    margin: auto;
+}
+.header{
+    background-color: #F0EDE4;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+.header .nav{
+    width: 60%;
+    float: left;
+    list-style: none;
+    text-align: right;
+}
+.website-name{
+    color: #3D3D61;
+    width: 40%;
+    float: left;
+    padding: 20px;
+}
+/* to solve float problem */
+.clear{ 
+    clear: both;
+}
+.header .nav li{
+    display: inline-block;
+    margin-left:20px ;
+    text-align: right;
+}
+.header .nav li a{
+    color: #3E5158;
+    text-decoration: none;
+    padding: 25px;
+    display: block;
+    padding-right: 43px;
+    font-size: 17px;
+    
+}
+.header .nav li a.active:after,.header .nav li a:after{
+    content: "";
+    display: block;
+    height: 5px;
+    background-color:#3E5158;
+    transition: width 0.5s;
+}
+.header .nav li a:after{
+     width: 0;
+}
+.header .nav li a.active:after, .header .nav li a:hover:after{
+    width: 100%;
+}
+.search-section{
+    height: 100vh;
+    background-image: url(../assets/Book\ Lovers.jpeg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    /* background-repeat: no-repeat; */
+}
+.overlay{ /*for the black layer over the background image */
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+
+}
+.search-section .welcome-message{
+    color: aliceblue;
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+.search-section .description{
+    color: white;
+    margin: 20px 0;
+    letter-spacing: 2px;
+    line-height: 1.5;
+}
+.search-section-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    width: 65%;
+}
+form{
+    background-color: #fff;
+    width: 600px;
+    height: 50px;
+    display: flex;
+    text-align: center;
+    border-radius: 5px;
+}
+form input{
+    flex: 1;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+.search-btn{
+    background: #3D3D61;
+    padding: 10 px 50 px;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    color: #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+    width: 20%;
+    transition: 0.3s ease;
+
+}
+.search-btn:hover {
+    opacity: 0.8; 
+}
+.search-bar{
+    align-items: center;
+    justify-content: center;
+    transform: translate(19%,0);
+}
+.shift-placeholder::placeholder {
+    /* text-indent: 1px;  */
+}
+::placeholder{
+    opacity: 0.65;
+}
+.custom-input {
+    font-size: 20px;
+    padding-left: 20px;
+}
+form .fa-magnifying-glass{
+    align-self: center;
+    padding: 10px 10px;
+    color: #777;
+}
+
+.books-section-header{
+    text-align: center;
+    color:#3E5158;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+.books-section-header .section-title{
+    font-size: 35px;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+.books-section-header .line{
+    display: block;
+    height: 4px;
+    width: 80px;
+    background-color:#3E5158 ;
+    margin:auto ;
+    margin-bottom: 50px;
+}
+.pd-y{
+    padding: 120px 0;
+}
+/* CSS for the books container */
+.books-container {
+    display: flex; /* Use Flexbox */
+    justify-content: space-between; /* Distribute items evenly along the main axis */
+    flex-wrap: wrap; /* Wrap items to the next row if necessary */
+}
+
+/* CSS for individual book items */
+.book-item {
+    width: calc(33.33% - 20px); /* Set the width of each book item (adjust as needed) */
+    margin-bottom: 20px; /* Add some bottom margin for spacing */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    padding: 80px 90px;
+    
+    /* Optionally, you can add additional styling for each book item */
+}
+.book-item img{
+    width: 200px;
+    height: 300px;
+}
+.book-item p{
+    text-align: center;
+}
+.book-item h3{
+    text-align: center;
+    color: #3D3D61;
+
+}
+.book-item a {  /* Target anchor tag within book-item */
+    display: block;  /* Make anchor fill the entire book item */
+    width: 100%;  /* Ensure anchor covers the entire image */
+    height: 100%;  /* Ensure anchor covers the entire image */
+  }
+  
+  .book-item a:hover {  /* Style on hover */
+    opacity: 0.7;  /* Optional: Reduce image opacity on hover */
+    cursor: pointer;  /* Change cursor to indicate link */
+  }
+  /* .book-cover {
+    width: 200px; 
+    height: 300px; 
+  }
+  
+  .book-title {
+    margin-top: 10px; 
+    font-size: 16px;
+  }
+  
+  .book-author {
+    font-size: 14px; 
+    margin-bottom: 5px; 
+  } */
