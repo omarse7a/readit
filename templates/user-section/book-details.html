@@ -42,12 +42,17 @@
                 <p>{{book.description}}</p>
             </div>
             <div class="rent">
-                <button class="button">Borrow</button>
-                {% if book.isAvailable %}
-                <p>Status: <small class="available">Available</small></p>
-                {% else %}
-                <p>Status: <small class="unavailable">Unavailable</small></p>
-                {% endif %}
+                <form method="post" action="{% url 'borrow' book.id %}">
+                    {% csrf_token %}
+                    <button class="button">Borrow</button>
+                    {% if book.current_borrower.user == request.user %}
+                    <p>Status: <small>You already have it</small></p>
+                    {% elif book.isAvailable %}
+                    <p>Status: <small class="available">Available</small></p>
+                    {% else %}
+                    <p>Status: <small class="unavailable">Unavailable</small></p>
+                    {% endif %}
+                </form>
             </div>
         </div>
     </section>

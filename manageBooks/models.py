@@ -25,7 +25,6 @@ class Book(models.Model):
     title = models.CharField(max_length=100)
     cover = models.ImageField(upload_to="book-covers/%y/%m/%d")
     author = models.CharField(max_length=100)
-    # category = models.CharField(max_length=100, null=True, blank=True, default='Uncategorized')
     category = models.CharField(max_length=50, default="Any", choices=CATEGORY_CHOICES,)
     no_of_pages = models.IntegerField(null=True, blank=True)
     language = models.CharField(max_length=20, default="English", choices=LANGUAGE_CHOICES,)
@@ -38,8 +37,10 @@ class Book(models.Model):
         return self.title
 
 class Borrowed(models.Model):
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.user.user.username} borrowed {self.book.title}"
+        return f"{self.profile.user.username} borrowed {self.book.title}" #self.user.user.username
+    class Meta:
+        verbose_name = 'borrowed book'
