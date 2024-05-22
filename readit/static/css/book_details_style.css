@@ -35,20 +35,20 @@ body {
 
 #main-sec .book-data h1 {
     color: #3E5158;
-    font-size: 30px;
+    font-size: 32px;
     margin: 0;
 }
 
 
 #main-sec .book-data strong {
     color: #3E5158;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 #main-sec .book-data p {
-    margin: 10px 0;
+    margin: 15px 0;
     display: inline-block;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 #main-sec .rent,
@@ -66,8 +66,8 @@ body {
 }
 
 .button {
-    height: 35px;
-    padding: 10px 12px;
+    height: 40px;
+    padding: 12px 15px;
     margin-right: 10px;
     background-color: #3E5158;
     border: none;
@@ -87,8 +87,8 @@ body {
 }
 
 .button-no-hover {
-    height: 35px;
-    padding: 10px 12px;
+    height: 40px;
+    padding: 12px 15px;
     margin-right: 10px;
     background-color: #3E5158;
     border: none;
@@ -103,8 +103,8 @@ body {
 }
 
 .delete:hover {
-    height: 35px;
-    padding: 10px 12px;
+    height: 40px;
+    padding: 12px 15px;
     margin-right: 10px;
     background-color: #e04242;
     border: none;

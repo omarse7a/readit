@@ -3,7 +3,7 @@ const borrow_button = document.querySelector(".rent button");
 let availability = document.querySelector('.rent small');
 
 document.addEventListener("DOMContentLoaded", () => {
-    if (availability.innerHTML == "Unavailable") {
+    if (availability.innerHTML != "Available") {
         borrow_button.classList.remove("button")
         borrow_button.classList.add("button-no-hover")
     }
@@ -17,6 +17,5 @@ borrow_button.addEventListener("click", () => {
         availability.style.color = "#FF1919"
         borrow_button.classList.remove("button")
         borrow_button.classList.add("button-no-hover")
-        book.status = "Unavailable"
     }
 })
