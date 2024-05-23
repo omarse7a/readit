@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        {% comment %} <link rel="shortcut icon" type="x-icon" href="../assets/parthenon-svgrepo-com (1).svg"> {% endcomment %}
+        {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> {% endcomment %}
+        <link rel="stylesheet" href="{% static 'css/borrowedBooks.css' %}">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Your Borrowed Books</title>
+    </head>
+
+    <body>
+        <nav>
+            <ul class="left-side">
+                <li><a id="home" href="{% url 'home' %}">readit</a></li>
+            </ul>
+            <ul class="right-side">
+                <li><a href="{% url 'view_books'%}">View books</a></li>
+                <!-- <li><a href="../Admin Section/admin-dashboard.html">Dashboard</a></li> -->
+                <li>
+                    <a class="img-link" href="{% url 'login' %}">
+                        <img src="{% static 'images/profile.svg' %}" class="user-profile" alt="Profile">
+                    </a>
+                </li>
+            </ul>
+            <!-- <div class="sub-menu-wrap">
+                <div class="sub-menu">
+                    <img src="../assets/user-svgrepo-com.svg">
+                    <h2>ReadIt User</h2>
+                    <br>
+                </div>
+            </div> -->
+        </nav>
+
+        <div class="main-dashboard">
+            <div class="recent-borrows">
+            </div>
+        
+            <div class="analytics">
+                <h2 id="analytic-title">Your Weekly Progress</h2>
+                <div class="metrics">
+                    <div class="progress-item">
+                        <span class="progress-label">Books Rented:</span> 
+                        <div class="values">
+                            <meter id="books-rented" value="3" min="0" max="4"></meter>
+                            <span class="meter-value">75% (3)</span>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <span class="progress-label">Books Returned:</span> 
+                        <div class="values">
+                            <meter id="books-returned" value="2" min="0" max="4"></meter>
+                            <span class="meter-value">50% (2)</span>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <span class="progress-label">Books Completed:</span> 
+                        <div class="values">
+                            <meter id="books-completed" value="1" min="0" max="4"></meter>
+                            <span class="meter-value">20% (1)</span>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <span class="progress-label">Pages Read:</span> 
+                        <div class="values">
+                            <meter id="pages-read" value="2500" min="0" max="4000"></meter>
+                            <span class="meter-value">60% (2k+)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="books-for-you">
+                <h2 id="recommendation">Today's Recommendation</h2>
+                <div id="recommended"></div>
+                </div>
+            </div>
+        
+        </div>
+
+
+
+        {% comment %} <script src="{% static 'js/borrowedBooks.js' %}"></script> {% endcomment %}
+        
+    </body>
+
+</html>
