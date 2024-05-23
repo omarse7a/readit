@@ -98,5 +98,4 @@ def login(request):
 
 def logout(request):
     auth_logout(request)
-    messages.success(request, "You are now logged out")
     return redirect("home")
