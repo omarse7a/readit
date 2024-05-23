@@ -90,6 +90,10 @@ nav a:hover {
     display: flex;
 }
 
+.alter {
+    justify-content: center;
+}
+
 .rent .available {
     color: #59bd5c;
 }

@@ -30,7 +30,8 @@ class Book(models.Model):
     language = models.CharField(max_length=20, default="English", choices=LANGUAGE_CHOICES,)
     description = models.TextField()
     price = models.DecimalField(max_digits=4, decimal_places=2)
-    copies = models.IntegerField(default=0)
+    copies = models.IntegerField(default=1)
+    borrowed_copies = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title

@@ -54,7 +54,7 @@
                 <form method="post" action="{% url 'borrow' book.id %}">
                     {% csrf_token %}
                     <button class="button">Borrow</button>
-                    {% if book.copies > 0 %}
+                    {% if book.copies > book.borrowed_copies %}
                     <p>Status: <small class="available">Available</small></p>
                     {% else %}
                     <p>Status: <small class="unavailable">Unavailable</small></p>

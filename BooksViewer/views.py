@@ -15,8 +15,8 @@ def borrow_book(request, book_id):
     book = Book.objects.get(id=book_id)
     user = request.user
     
-    if book.copies > 0:
-        book.copies -= 1
+    if book.copies > book.borrowed_copies:
+        book.borrowed_copies += 1
         book.save()
         borrow = Borrowed(user=user, book=book)
         borrow.save()
@@ -27,7 +27,7 @@ def return_book(request, book_id):
     book = Book.objects.get(id=book_id)
     user = request.user
 
-    book.copies += 1
+    book.borrowed_copies -= 1
     book.save()
     borrowed_book = Borrowed.objects.filter(user=user, book=book)
     borrowed_book.delete()

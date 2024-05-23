@@ -109,7 +109,7 @@ body {
 .featured-slider .box .content .status {
     font-size: 25px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 .featured-slider .box .content .btn {
