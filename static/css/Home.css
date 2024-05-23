@@ -128,9 +128,9 @@ form input{
     justify-content: center;
     transform: translate(19%,0);
 }
-.shift-placeholder::placeholder {
-    /* text-indent: 1px;  */
-}
+/* .shift-placeholder::placeholder {
+     text-indent: 1px;   
+} */
 ::placeholder{
     opacity: 0.65;
 }
