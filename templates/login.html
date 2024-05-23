@@ -19,7 +19,7 @@
 <body>
 <nav>
     <ul>
-        <li><a id="Home" href="User Section/Home.html">readit</a></li>
+        <li><a id="Home" href="{% url 'home' %}">readit</a></li>
     </ul>
 </nav>
 <div id="error-messages">
@@ -55,7 +55,7 @@
             </div>
             <div class="register-link">
                 <p>Forgot password? <a href="#">Click here</a></p>
-                <p> Don't have an account? <a href="signup">Sign up</a></p>
+                <p> Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
             </div>
 
         </form>
@@ -79,6 +79,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <!-- Bootstrap JS -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="{% static 'js/auth.js' %}"></script>
+
 </body>
 </html>

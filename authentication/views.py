@@ -20,20 +20,9 @@ def is_valid_email(email):
 # Create your views here.
 
 def home(request):
-    return render(request, "index.html")
+    return render(request, "home.html")
 
 
-def handle_combined(request, *args, **kwargs):
-    # Determine the final segment of the URL
-    final_segment = request.path.strip('/').split('/')[-1]
-
-    if final_segment == 'login':
-        return login(request)
-    elif final_segment == 'signup':
-        return signup(request)
-    else:
-        # Default action or 404
-        return render(request, '404.html')
 def signup(request):
     if request.method == "POST":
         username = request.POST['Username']
@@ -96,7 +85,7 @@ def login(request):
         if user is not None:
             auth_login(request, user)
             messages.success(request, "You are now logged in")
-            return render(request, "index.html", {'FirstName': user.first_name, 'LastName': user.last_name})
+            return render(request, "home.html", {'FirstName': user.first_name, 'LastName': user.last_name})
         else:
             messages.error(request, "Invalid Credentials")
             return redirect("login")

@@ -15,7 +15,7 @@
 <body>
 <nav>
     <ul>
-        <li><a id="Home" href="Home.html">readit</a></li>
+        <li><a id="Home" href="home.html">readit</a></li>
     </ul>
 </nav>
 {% for message in messages %}
@@ -31,12 +31,12 @@
     <div class="formWindow">
 
         <div class="form">
-            <a href="Home.html">
+            <a href="home.html">
                 <img id="backArrow" src="{% static 'images/back-arrow-navigation-svgrepo-com.svg' %}"
                      alt="Back to Home Page">
             </a>
             <h1 id="signup-header">Sign Up</h1>
-            <p class="login-para">Already a member? <a id="login" href="login">Login Here.</a></p>
+            <p class="login-para">Already a member? <a id="login" href="{% url 'login' %}">Login Here.</a></p>
             <form id="signup-form" action="{% url 'signup' %}" method="POST">
                 {% csrf_token %}
                 <input type="text" name="FirstName" placeholder="First Name" required>

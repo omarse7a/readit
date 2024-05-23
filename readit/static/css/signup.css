@@ -202,7 +202,3 @@ ion-icon {
     font-size: 15px;
     font-weight: 600;
 }
-.inline-inputs input {
-            display: inline-block;
-            margin-right: 10px; /* Adjust as needed for spacing */
-        }
