@@ -39,7 +39,10 @@
                             <h3>{{book.title}}</h3>
                             <h3 id="author">by {{book.author}}</h3>
                         </div>
-                        {% if book.isAvailable %}
+                        <div class="price">
+                            {{book.price}} EGP
+                        </div>
+                        {% if book.copies > book.borrowed_copies %}
                         <div class="status" status="Available">
                             Available
                         </div>

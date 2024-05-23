@@ -35,7 +35,7 @@ body {
 }
 
 .heading span {
-    font-size: 2.2rem;
+    font-size: 3rem;
     padding: .5rem 2rem;
     color: var(--purple);
     background: var(--gypsum);
@@ -88,7 +88,7 @@ body {
     /* Set a fixed height for the h3 element */
     margin: 0;
     /* Reset margin to ensure proper alignment */
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .featured-slider .box .content #author {
@@ -107,9 +107,9 @@ body {
 }
 
 .featured-slider .box .content .status {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 .featured-slider .box .content .btn {
@@ -118,7 +118,7 @@ body {
 
 .featured-slider .box {
     height: 100%;
-    margin: 2rem 0;
+    margin-top: 4rem;
     position: relative;
     overflow: hidden;
     border: var(--border);
@@ -146,8 +146,8 @@ body {
 }
 
 .featured-slider .box .image img {
-    height: 25rem;
-    width: 15rem;
+    height: 30rem;
+    width: 19rem;
     border-radius: 1rem;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.7s ease-in-out;
@@ -187,8 +187,8 @@ body {
 .featured-slider .swiper-slide .box .icons a {
     text-decoration: none;
     color: var(--teal);
-    font-size: 1.8rem;
-    padding: 1rem 1.5rem;
+    font-size: 2.2rem;
+    padding: 1.3rem 1.5rem;
 }
 
 .featured-slider .swiper-slide .box .icons a:hover {
@@ -202,7 +202,7 @@ body {
 }
 
 .featured-slider .box .content h3 {
-    font-size: 1.7rem;
+    font-size: 2rem;
     color: var(--purple);
 }
 

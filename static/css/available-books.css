@@ -35,7 +35,7 @@ body {
 }
 
 .heading span {
-    font-size: 2.2rem;
+    font-size: 3rem;
     padding: .5rem 2rem;
     color: var(--purple);
     background: var(--gypsum);
@@ -88,7 +88,7 @@ body {
     /* Set a fixed height for the h3 element */
     margin: 0;
     /* Reset margin to ensure proper alignment */
-
+    font-size: 25px;
 }
 
 .featured-slider .box .content #author {

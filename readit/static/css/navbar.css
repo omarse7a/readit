@@ -6,9 +6,9 @@ nav {
     display: flex;
     background: linear-gradient(to left, #5c5c74, #3D3D60);
     background-color: #3D3D60;
-    height: 40px;
+    padding: 5px;
     align-items: center;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 nav h1 {
@@ -30,9 +30,8 @@ nav a:hover {
     display: flex;
     list-style-type: none;
     text-align: center;
-    font-size: 12px;
 }
 
 .nav-list li {
-    padding: 0 5px
+    padding: 0 10px
 }
