@@ -41,19 +41,27 @@
                 <label><strong>Description:</strong></label>
                 <p>{{book.description}}</p>
             </div>
+            {% if book_borrowed %}
+            <div class="return">
+                <form method="post" action="{% url 'return' book.id %}">
+                    {% csrf_token %}
+                    <button class="button">Return</button>
+                    <p>Status: <small>You have it</small></p>
+                </form>
+            </div>
+            {% else %}
             <div class="rent">
                 <form method="post" action="{% url 'borrow' book.id %}">
                     {% csrf_token %}
                     <button class="button">Borrow</button>
-                    {% if book.current_borrower.user == request.user %}
-                    <p>Status: <small>You already have it</small></p>
-                    {% elif book.isAvailable %}
+                    {% if book.copies > 0 %}
                     <p>Status: <small class="available">Available</small></p>
                     {% else %}
                     <p>Status: <small class="unavailable">Unavailable</small></p>
                     {% endif %}
                 </form>
             </div>
+            {% endif %}
         </div>
     </section>
 </div>

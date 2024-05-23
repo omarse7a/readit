@@ -1,5 +1,5 @@
 from django.db import models
-from authentication.models import Profile
+from authentication.models import Profile, User
 
 # Create your models here.
 
@@ -30,17 +30,16 @@ class Book(models.Model):
     language = models.CharField(max_length=20, default="English", choices=LANGUAGE_CHOICES,)
     description = models.TextField()
     price = models.DecimalField(max_digits=4, decimal_places=2)
-    isAvailable = models.BooleanField(default=True)
-    current_borrower = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.SET_NULL, related_name='borrowed_books')
+    copies = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
 
 class Borrowed(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.profile.user.username} borrowed {self.book.title}" #self.user.user.username
+        return f"{self.user.username} borrowed {self.book.title}" #self.user.user.username
     class Meta:
         verbose_name = 'borrowed book'
