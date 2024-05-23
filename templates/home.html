@@ -15,12 +15,12 @@
             <h1 class="website-name">ReadIt</h1>
             <ul class="nav">
                 <li><a href="" class="active">Home</a></li>
-                <li><a href="login">Borrowed Books</a></li>
-                <li><a href="available-books.html">Available Books</a></li>
                 {% if user.is_authenticated %}
-                <li><a href="logout" class="sign-in-btn">Log out</a></li>
+                <li><a href="{% url 'borrowed-books' %}">Borrowed Books</a></li>
+                <li><a href="{% url 'view_books' %}">Available Books</a></li>
+                <li><a href="{% url 'logout' %}" class="sign-in-btn">Log out</a></li>
                 {% else %}
-                <li><a href="login" class="sign-in-btn">Log in</a></li>
+                <li><a href="{% url 'login' %}" class="sign-in-btn">Log in</a></li>
                 {% endif %}
             </ul>
             <div class="clear"></div>

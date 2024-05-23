@@ -31,7 +31,7 @@ def signup(request):
         email = request.POST['Email']
         fname = request.POST['FirstName']
         lname = request.POST['LastName']
-        role = request.POST['user-type']
+        role = request.POST.get('user-type')
 
         if User.objects.filter(username=username).exists():
             messages.error(request, "Username already taken")
@@ -58,6 +58,9 @@ def signup(request):
             return redirect("signup")
         if not is_valid_email(email):
             messages.error(request, "Invalid email address")
+            return redirect("signup")
+        if not role:
+            messages.error(request, "You must choose an account type")
             return redirect("signup")
 
         myuser = User.objects.create_user(username, email, password)
