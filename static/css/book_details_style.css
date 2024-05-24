@@ -1,55 +1,17 @@
-body {
+body{
     margin: 0;
-    background-color: #F0EDE4;
-    color: #55545C;
-    font-size: 20px;
-}
-
-/*//////////////The navbar section///////////////////*/
-nav {
-    display: flex;
-    background: linear-gradient(to left, #5c5c74, #3D3D60);
-    background-color: #3D3D60;
-    padding: 5px;
-    align-items: center;
-    font-size: 18px;
-}
-
-nav h1 {
-    margin: 0 0 0 20px;
-}
-
-nav a {
-    color: #F0EDE4;
-    text-decoration: none;
-    padding: 0 5px;
-    transition: 0.5s ease;
-}
-
-nav a:hover {
-    color: #FFF;
-}
-
-.nav-list {
-    display: flex;
-    list-style-type: none;
-    text-align: center;
-}
-
-.nav-list li {
-    padding: 0 10px
 }
 
 .container {
-    width: 80%;
-    margin: auto;
+    width: 75%;
+    margin-left: 20%;
 }
 
 /*//////////////The main section///////////////////*/
 #main-sec {
     display: flex;
     flex-wrap: wrap;
-    margin: 50px 0;
+    margin-bottom: 50;
     justify-content: space-between;
 }
 
@@ -65,7 +27,7 @@ nav a:hover {
 }
 
 #main-sec .book-data {
-    flex-basis: 65%;
+    flex-basis: 55%;
 }
 
 #main-sec .book-data h1 {
@@ -139,11 +101,11 @@ nav a:hover {
     opacity: 0.6;
 }
 
-.deleted:hover {
+.delete:hover {
     height: 50px;
     padding: 15px 30px;
     margin-right: 10px;
-    background-color: #f85151;
+    background-color: #FF1414;
     border: none;
     border-radius: 20px;
     color: white;
@@ -151,7 +113,7 @@ nav a:hover {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    cursor: default;
+    cursor: pointer;
     opacity: 0.6;
 }
 
@@ -199,6 +161,7 @@ nav a:hover {
     box-sizing: border-box;
     margin: 15px 0;
     resize: none;
+    font-size: 16px;
 }
 
 
@@ -212,4 +175,17 @@ nav a:hover {
     box-sizing: border-box;
     margin: 15px 0;
     resize: none;
+    font-size: 16px;
+}
+
+select {
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-sizing: border-box;
+    margin: 15px 0;
+    font-size: 16px;
 }

@@ -1,21 +1,17 @@
-{% extends 'parts/navbar.html' %}
+{% extends 'admin-section/admin-pages-layout.html' %}
 
-
-{% block navlist %}
-<li><a href="{% url 'book_list' %}">View books</a></li>
-<li><a href="Admin Section/add-books.html">Add book</a></li>
-<li><a href="Admin Section/admin-dashboard.html">Dashboard</a></li>
-{% endblock navlist %}
+{% block title %} ReadIt {% endblock %}
 
 {% block content %}
+
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/book_details_style.css' %}">
-<div class="container">
-    <section id="main-sec">
+<div class="main">
+    <section id="details">
         <div class="book-cover">
             <img src="{{book.cover.url}}" alt="book-cover">
         </div>
-        <div class="book-data">
+        <div class="book-info">
             <form action="{% url 'button_clicked' book.id %}" method="post">
                 {% csrf_token %}
                 <div>

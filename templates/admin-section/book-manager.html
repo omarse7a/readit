@@ -1,6 +1,12 @@
-{% extends 'parts/navbar.html' %}
+{% extends 'admin-section/admin-pages-layout.html' %}
 
-{% block headarea %}
+{% block title %} ReadIt {% endblock %}
+
+
+
+
+
+{% block content %}
 
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/available-books.css' %}">
@@ -8,19 +14,6 @@
 </script>
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-
-{% endblock headarea %}
-
-{% block navlist %}
-<li><a href="{% url 'book_list' %}">View books</a></li>
-<li><a href="Admin Section/add-books.html">Add book</a></li>
-<li><a href="Admin Section/admin-dashboard.html">Dashboard</a></li>
-{% endblock navlist %}
-
-
-
-{% block content %}
 
 <section class="available" id="available">
     <h1 class="heading"> <span>Available Books</span></h1>
