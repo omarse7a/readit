@@ -41,6 +41,7 @@
                 <label><strong>Description:</strong></label>
                 <p>{{book.description}}</p>
             </div>
+            {% if request.user.is_authenticated %}
             {% if book_borrowed %}
             <div class="return">
                 <form method="post" action="{% url 'return' book.id %}">
@@ -61,6 +62,7 @@
                     {% endif %}
                 </form>
             </div>
+            {% endif %}
             {% endif %}
         </div>
     </section>
