@@ -14,6 +14,12 @@
 body {
     background: var(--gypsum);
     font-family: 'Helvetica Neue', Ubuntu, Cantarell;
+    margin: 0;
+}
+
+.available{
+    width: 90%;
+    margin-left: 10%;
 }
 
 .heading {
@@ -42,7 +48,7 @@ body {
 }
 
 .swiper {
-    margin-left: 350px;
+    /* margin-left: 350px; */
     /* Adjust based on the width of the sidebar */
     transition: margin-left 0.3s ease;
     transform: scale(0.75);

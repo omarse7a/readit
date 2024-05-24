@@ -9,12 +9,9 @@
     <!-- Icons From boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     {% load static %}
-   
-   
+    <link rel="icon" href=" {% static 'images/icon.svg' %}"> 
 
-
-
-    <title>{%block title %} {%endblock%}</title>
+    <title>readit</title>
 </head>
 
 <body class="">
@@ -36,7 +33,7 @@
                     <a href="{%url 'addbooks'%}"><i class='bx bxs-book-add'></i>Add Books</a>
                 </li>
                 <li>
-                    <a href=""><i class='bx bxs-book-content'></i>View Books</a>
+                    <a href="{% url 'book_list' %}"><i class='bx bxs-book-content'></i>View Books</a>
                 </li>
             </ul>
             <div class="side-menu">

@@ -269,7 +269,7 @@ body {
 main{
     margin-top: 5px;
     margin-left: 142px;
-    width: 1250px;
+    width: calc(100% - 190px);
 }
 
 main.expanded {
