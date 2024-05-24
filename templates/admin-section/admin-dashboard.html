@@ -1,0 +1,48 @@
+
+{% extends 'admin-section/admin-pages-layout.html' %}
+{% load static %}
+
+{% block title %} ReadIt {% endblock %}
+
+{% block content %} 
+    
+<link rel="stylesheet" href="{% static 'css/admin-dashboard.css' %}">
+    <main id="main-content">
+        <div class="main-content">
+            <div class="header">
+                <h1>Dashboard</h1>
+            </div>
+            <ul class="cards">
+                <li>
+                    <i class='bx bxs-shopping-bags'></i>
+                    <span class="info borrowed-book-count">
+                        <h3>{{borrowed_num}}</h3>
+                        <p>Borrowed Books</p>
+                    </span>
+                </li>
+                <li>
+                    <i class='bx bx-book'></i>
+                    <span class="info Published-books-count">
+                        <h3>{{published_num}}</h3>
+                        <p>Published Books</p>
+                    </span>
+                </li>
+                <li>
+                    <i class="bx bx-dollar-circle"></i>
+                    <span class="info earnings-this-month">
+                        <h3>{{earnings}}</h3>
+                        <p>This Month</p>
+                    </span>
+                </li>
+                <li>
+                    <i class='bx bx-chart'></i>
+                    <span class="info most-borrowed-book">
+                        <h3>{{most_borrowed_title}}</h3>
+                        <p>Most Borrowed Book</p>
+                    </span>
+                    <img class="mostbook" src="{{most_borrowed_image.url}}" alt="most-borrowed-book_cover">
+                </li>
+            </ul>
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,280 @@
+/* color variables */
+:root {
+    --gypsum: #f1ede5;
+    --gypsum-1: #ccc8e9;
+    --purple: #3c3d61;
+    --gray: #55545b;
+    --Teal-Gray: #839f8e;
+    --danger : #b0adc0;
+}
+/* Reset */
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Helvetica Neue', Ubuntu, Cantarell;
+}
+
+.bx {
+   font-size: 27px;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* for dark mode */
+
+body.dark {
+    --gray : #181a1e;
+    --gypsum : #25252c;
+    --purple : #fbfbfb;
+    --Teal-Gray : #3c5256;
+    --danger : #888383;
+    --gypsum-1: #2a2a37;
+}
+
+body {
+    background-color: var(--gypsum);
+    overflow-x: hidden;
+}
+/* sidebar start */
+.sidebar{
+    position: fixed;
+    background-color: var(--gypsum);
+    width: 260px;
+    height: 100%;
+    overflow-x: hidden;
+    transition: all 0.2s ease-in-out;
+    border-radius: 15px ;
+}
+
+.sidebar.close {
+    width: 48px;
+}
+
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+    font-size: 35px;
+    height: 60px;
+    color: var(--purple);
+    margin: 0 0 0 10px;
+    
+}
+.sidebar .logo .bx{
+    font-size: 38px;
+}
+
+.sidebar .side-menu{
+    width: 100%;
+    margin: 25px 0px 0 10px;
+}
+
+.sidebar .side-menu li {
+    margin:25px 0;
+    background-color: transparent;
+    border-radius: 5px;
+    width: 280px;
+    height: 40px;
+}
+
+.sidebar .side-menu li.active {
+    border-left: var(--Teal-Gray) 5px solid;
+    background-color: var(--purple);
+    transition: all 0.4s ease-in-out;
+}
+
+
+.sidebar .side-menu li.active a {
+    color: var(--Teal-Gray);
+  }
+  
+
+.sidebar .side-menu li a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    overflow-x: hidden;
+    transition: all 0.2s ease-in-out;
+    color: var(--purple);
+
+}
+
+.sidebar.close .side-menu li a {
+    width: 68px;
+    transition: all 0.2s ease-in-out;
+}
+
+.sidebar.close .logo {
+    width: 10px;
+    
+}
+
+.sidebar .side-menu li a .bx {
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    font-size: 27px;
+}
+
+.sidebar.close .logo .bx {
+        width: 100px; ;
+  }
+
+.side-menu li a.logout {
+    color: var(--danger);
+}
+
+.readit.close{
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    height: 60px;
+    color: var(--purple);
+    margin-bottom: 0px;
+    margin-top: 14px;
+    margin-left: -2px;
+}
+
+.readit.close:hover{
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+
+/* sidebar end */
+
+/* --------------------------------------------------------------------------------------------------------- */
+/* ISA --  Add Books*/
+
+/* navbar */
+
+.navbar {
+    position: relative;
+    width: calc(100% - 260px); 
+    left: 260px;
+    transition: all 0.2s ease-in-out;
+}
+
+.sidebar.close + .navbar {
+    width: calc(100% - 48px);
+    left: 57px;
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 50px;
+    left: 0;
+    height: 56px;
+    background-color: var(--gypsum);
+    padding: 40px 16px;
+    grid-gap: 25px;
+    border-radius: 10px;
+}
+
+
+.navbar nav a {
+    color: var(--purple);
+}
+
+.navbar nav .bx.bx-menu {
+    cursor: pointer;
+    color: var(--purple);
+    font-size: 32px;
+}
+
+.navbar nav form {
+    width: 700px;
+    margin-right: auto;
+}
+
+.navbar nav form .form-input{
+    display: flex;
+    align-items: center;
+    height: 46px;
+}
+
+.navbar nav form .form-input input {
+    flex-grow: 1;
+    padding: 9px 16px;
+    border-radius: 11px 0 5px 0;
+    border: var(--Teal-Gray) solid 2px;
+    color: var(--purple);
+    width: 100%;
+    font-family: monospace;
+    height: 39px;
+}
+
+
+.navbar nav form .form-input button {
+    width: 38px;
+    height: 39px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Teal-Gray);
+    color: var(--purple);
+    font-size: 18px;
+    outline: none;
+    border: none;
+    border-radius: 5px 43px 40px 8px;
+    cursor: pointer;
+  }
+
+.navbar nav .notification  {
+    position: relative;
+    font-size: 20px;
+
+}
+
+.navbar nav .notification span {
+    position: absolute;
+    top: -6px;
+    width: 26px;
+    height: 20px;
+    font-size: 12px;
+    background-color: var(--Teal-Gray);
+    border-radius: 20px;
+    color: var(--purple);
+    border: 2px solid var(--gypsum);
+    display: flex;
+    justify-content: center;
+}
+
+.navbar nav .profile span {
+       position: fixed;
+    top: 0;
+    left: 83rem;
+    /* margin-right: 61rem; */
+    color: var(--purple);
+    font-family: monospace;
+    font-size: 20px;
+    white-space: nowrap;
+    margin-top: 28px
+}
+
+/* navbar ends */
+main{
+    margin-top: 5px;
+    margin-left: 142px;
+    width: 1250px;
+}
+
+main.expanded {
+    margin-left: -49px;
+    width: calc(100% - 48px); /* Adjusted width */
+}
+
+

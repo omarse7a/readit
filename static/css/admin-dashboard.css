@@ -1,0 +1,222 @@
+main .header h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: var(--purple);
+
+}
+
+main .cards{
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    grid-gap: 20px;
+    margin-top: 35px;
+}
+
+.cards li{
+    padding: 32px;
+    background-color: var(--Teal-Gray);
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    grid-gap: 24px;
+    height: 152px;
+    width: 572px
+
+}
+
+.cards li:hover {
+    transform: translateY(-10px)
+}
+
+.cards li .bx {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    font-size: 36px;
+}
+
+.cards li .info h3 {
+  font-size: 24px;
+  color: var(--purple);
+}
+
+.cards li .info p {
+  color: var(--purple);
+}
+
+.cards li .bx {
+    color: var(--purple);
+}
+
+
+.cards img {
+    margin-left: 112px;
+    height: 133px;
+    width: 160px;
+    border-radius: 15px;
+    border: 6px solid var(--purple);
+}
+main .bubble{
+    display: grid;
+    grid-gap: 20px;
+    margin-top: 35px;
+}
+
+.bubble li{
+    padding: 30px;
+    background-color: var(--Teal-Gray);
+    border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 24px;
+    height: auto;
+    width: 80vw;
+    max-width: 80vw;
+
+}
+
+.bubble li:hover {
+    background-color: var(--danger);;
+}
+.bubble li .bx {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    font-size: 36px;
+}
+.bubble li .info p{
+    font-weight: bold; 
+    margin-bottom: 5px;
+    font-size: 35px;
+    color: var(--purple);
+}
+
+ .drop-area {
+    width: 1100px;
+    height: 200px;
+    border: 4px dashed var(--purple);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 30px;
+    line-height: 200px;
+    cursor: pointer;
+    background-color: rgb(218, 218, 218)
+}
+
+main .hidden {
+    display: none;
+}
+.o-button{
+    width:160px;
+    padding: 15px 15px; 
+    font-size: 20px; 
+    font-weight: bold;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-left: 10px;
+    display: flex;
+}
+.o-button:hover {
+    background-color: var(--danger);
+}
+main .my-button {
+    padding: 25px 50px; /* Adjust padding as needed */
+    font-size: 20px; /* Adjust font size as needed */
+    font-weight: bold; /* Make text bold */
+    color:var(--purple); /* Text color */
+    background-color: rgba(131, 131, 123, 0.719); 
+    border: none; 
+    border-radius: 20px; 
+    cursor: pointer; 
+    transition: background-color 0.3s;
+}
+
+.my-button:hover {
+    background-color: var(--danger);
+}
+.inputs {
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  input {
+    display: block;
+    width: 500px;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    background: #ecf0f3;
+    padding: 10px;
+    padding-left: 20px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 50px;
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+    align-items: center;
+  }
+  input::placeholder {
+    color: gray;
+  }
+ .big-textarea {
+    width: 1000px;
+    max-width:1100px; /* Adjust the width as needed */
+    height: 200px; /* Allow the textarea to grow vertically */
+    max-height: 400px;
+    line-height: 1.5; /* Increase line height for better readability */ 
+    display: block;
+    border: none;
+    outline: none;
+    box-sizing: content-box;
+    background: #ecf0f3;
+    padding: 10px;
+    padding-left: 20px;
+    font-size: 20px;
+    border-radius: 40px;
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+    align-items: center;
+
+}
+main .small-input {
+    width: 250px; 
+}
+select {
+    display: block;
+    width: 250px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    background: #ecf0f3;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+    align-items: center;
+}
+.upload-container {
+    display: flex; /* Use flexbox */
+    align-items: center; /* Center items vertically */
+}
+
+.upload-container input[type="file"] {
+    flex: 1; /* Take up remaining space */
+    margin-right: 10px; /* Add some spacing between elements */
+}
+
+/* main end */
