@@ -139,11 +139,11 @@ nav a:hover {
     opacity: 0.6;
 }
 
-.deleted:hover {
+.delete:hover {
     height: 50px;
     padding: 15px 30px;
     margin-right: 10px;
-    background-color: #f85151;
+    background-color: #FF1414;
     border: none;
     border-radius: 20px;
     color: white;
@@ -151,7 +151,7 @@ nav a:hover {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    cursor: default;
+    cursor: pointer;
     opacity: 0.6;
 }
 
@@ -199,6 +199,7 @@ nav a:hover {
     box-sizing: border-box;
     margin: 15px 0;
     resize: none;
+    font-size: 16px;
 }
 
 
@@ -212,4 +213,17 @@ nav a:hover {
     box-sizing: border-box;
     margin: 15px 0;
     resize: none;
+    font-size: 16px;
+}
+
+select {
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-sizing: border-box;
+    margin: 15px 0;
+    font-size: 16px;
 }
