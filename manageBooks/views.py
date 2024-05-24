@@ -1,19 +1,42 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse
-from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from authentication.models import Profile
 from .models import Book
 
 # Create your views here.
 
+@login_required
 def book_manager(request):
-    return render(request, "admin-section/book-manager.html", {"books": Book.objects.all()})
+    try:
+        profile = Profile.objects.get(user=request.user)
+        role = profile.role
+        if role == 'Publisher':
+            user = request.user
+            fname = user.first_name 
+            lname = user.last_name
+            return render(request, "admin-section/book-manager.html", {"books": Book.objects.all(), 'fname': fname,
+                'lname': lname,})
+    except Profile.DoesNotExist:
+        return redirect('home')
 
+@login_required
 def book_details(request, book_id):
-    book = Book.objects.get(id=book_id)
-    categories = Book.CATEGORY_CHOICES
-    languages = Book.LANGUAGE_CHOICES
-    context = {"book": book, "categories" : categories, "languages" : languages}
-    return render(request, "admin-section/book-update.html", context)
+    try:
+        profile = Profile.objects.get(user=request.user)
+        role = profile.role
+        if role == 'Publisher':
+            user = request.user
+            fname = user.first_name 
+            lname = user.last_name
+            book = Book.objects.get(id=book_id)
+            categories = Book.CATEGORY_CHOICES
+            languages = Book.LANGUAGE_CHOICES   
+            context = {"book": book, "categories" : categories, "languages" : languages, 'fname': fname,
+                'lname': lname,}
+            return render(request, "admin-section/book-update.html", context)
+    except Profile.DoesNotExist:
+        return redirect('home')
+
 
 def button_clicked(request, book_id):
     book = Book.objects.get(id = book_id)
