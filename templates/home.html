@@ -51,7 +51,7 @@
     <ul class="search-results-list">
         {% for book in results %}
         <li class="search-result-item">
-            <a href="{% url 'book_manager' book.id %}">
+            <a href="{% url 'book_update' book.id % }">
                 <img src="{{ book.cover.url }}" alt="{{ book.title }}" class="result-cover">
                 <div class="result-details">
                     <h3>{{ book.title }}</h3>
