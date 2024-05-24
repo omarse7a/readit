@@ -204,17 +204,73 @@ form .fa-magnifying-glass{
     opacity: 0.7;  /* Optional: Reduce image opacity on hover */
     cursor: pointer;  /* Change cursor to indicate link */
   }
-  /* .book-cover {
-    width: 200px; 
-    height: 300px; 
-  }
-  
-  .book-title {
-    margin-top: 10px; 
-    font-size: 16px;
-  }
-  
-  .book-author {
-    font-size: 14px; 
-    margin-bottom: 5px; 
-  } */
+/* Specific styles for the search results section */
+.search-results-section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+/* Center the header */
+.search-results-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Container for the search results list */
+.search-results-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual search result item */
+.search-result-item {
+    margin: 10px;
+    flex: 1 1 200px; /* Adjust the width as needed */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+/* Hover effect for search result item */
+.search-result-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Clickable book cover */
+.search-result-item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* Set fixed size for book cover */
+.result-cover {
+    width: 150px; /* Adjust width as needed */
+    height: 220px; /* Adjust height as needed */
+    object-fit: cover;
+    display: block;
+    margin: 0 auto; /* Center the image within the item */
+}
+
+/* Result details styling */
+.result-details {
+    padding: 10px;
+    background: #fff;
+    text-align: center; /* Center align the text */
+}
+
+.result-details h3 {
+    font-size: 1.2em;
+    margin: 0 0 10px 0;
+}
+
+.result-details p {
+    margin: 5px 0;
+    color: #555;
+}
