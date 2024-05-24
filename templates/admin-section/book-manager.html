@@ -30,7 +30,7 @@
             <div class="swiper-slide">
                 <div class="box">
                     <div class="icons">
-                        <a href="{% url 'book_manage' book.id %}" class="fas fa-eye" data-book-id="{{book.id}}"></a>
+                        <a href="{% url 'book_update' book.id %}" class="fas fa-eye" data-book-id="{{book.id}}"></a>
                     </div>
                     <div class="image">
                         <img src="{{book.cover.url}}" alt="{{book.title}} Cover">

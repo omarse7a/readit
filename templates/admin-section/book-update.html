@@ -16,48 +16,60 @@
             <img src="{{book.cover.url}}" alt="book-cover">
         </div>
         <div class="book-data">
-            <div>
-                <label><strong>Title:</strong></label>
-                <input type="text" id="title" class="small-input" value="{{book.title}}">
-            </div>
-            <div>
-                <label><strong>Author:</strong></label>
-                <input type="text" id="author" class="small-input" value="{{book.author}}">
-            </div>
+            <form action="{% url 'button_clicked' book.id %}" method="post">
+                {% csrf_token %}
+                <div>
+                    <label><strong>Title:</strong></label>
+                    <input type="text" name="title" class="small-input" value="{{book.title}}">
+                </div>
+                <div>
+                    <label><strong>Author:</strong></label>
+                    <input type="text" name="author" class="small-input" value="{{book.author}}">
+                </div>
+                <div>
+                    <label><strong>Number of pages:</strong></label>
+                    <input type="number" name="no_of_pages" class="small-input" value="{{book.no_of_pages}}">
+                </div>
+                <div>
+                    <label><strong>Category:</strong></label>
+                    <select name="category">
+                        {% for key, value in categories %}
+                        <option value="{{ key }}" {% if book.category == key %}selected{% endif %}>{{ value }}</option>
+                        {% empty %}
+                        <option>No categories available</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label><strong>Language:</strong></label>
+                    <select name="language">
+                        {% for key, value in languages %}
+                        <option value="{{ key }}" {% if book.language == key %}selected{% endif %}>{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label><strong>Description:</strong></label>
+                    <textarea name="description" class="large-input">{{book.description}}</textarea>
+                </div>
 
-            <div>
-                <label><strong>Category:</strong></label>
-                <input type="text" id="category" class="small-input" value="{{book.category}}">
-            </div>
-            <div>
-                <label><strong>Number of pages:</strong></label>
-                <input type="number" id="no_of_pages" class="small-input" value="{{book.no_of_pages}}">
-            </div>
-            <div>
-                <label><strong>Language:</strong></label>
-                <input type="text" id="language" class="small-input" value="{{book.language}}">
-            </div>
-            <div>
-                <label><strong>Description:</strong></label>
-                <textarea id="description" class="large-input">{{book.description}}</textarea>
-            </div>
+                <div>
+                    <label><strong>Price:</strong></label>
+                    <input type="number" name="price" class="small-input" value="{{book.price}}">
+                </div>
 
-            <div>
-                <label><strong>Price:</strong></label>
-                <input type="number" id="price" class="small-input" value="{{book.price}}">
-            </div>
+                <div>
+                    <label><strong>Number of copies:</strong></label>
+                    <input type="number" name="copies" class="small-input" value="{{book.copies}}">
+                </div>
 
-            <div>
-                <label><strong>Number of copies:</strong></label>
-                <input type="number" id="copies" class="small-input" value="{{book.copies}}">
-            </div>
-
-            <div class="alter">
-                <button class="button edit">Edit</button>
-                <button class="button delete">Delete</button>
-            </div>
+                <div class="alter">
+                    <button type="submit" name="action" value="update" class="button edit">Update</button>
+                    <button type="submit" name="action" value="delete" class="button delete">Delete</button>
+                </div>
+            </form>
         </div>
     </section>
 </div>
-<script src="{% static 'js/book_update.js' %}"></script>
+<!-- <script src="{% static 'js/book_update.js' %}"></script> -->
 {% endblock content %}
