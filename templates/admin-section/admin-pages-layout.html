@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <!-- Icons From boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    {% load static %}
+   
+   
+
+
+
+    <title>{%block title %} {%endblock%}</title>
+</head>
+
+<body class="">
+    <header>
+        <!-- Sidebar Start -->
+        <div class="sidebar">
+            <a href="/Home.html" class="logo">
+                <div class="readit">
+                    <!-- <i class='bx bxs-book'></i> -->
+                    <span>readit</span>
+                </div>
+
+            </a>
+            <ul class="side-menu">
+                <li class="active">
+                    <a href="{% url 'dashboard' %}"><i class='bx bxs-dashboard'></i>Dashboard</a>
+                </li>
+                <li>
+                    <a href="{%url 'addbooks'%}"><i class='bx bxs-book-add'></i>Add Books</a>
+                </li>
+                <li>
+                    <a href=""><i class='bx bxs-book-content'></i>View Books</a>
+                </li>
+            </ul>
+            <div class="side-menu">
+                <ul>
+                    <li>
+                        <a class="dark-mode" href="#"><i class="bx bx-sun"></i>Dark / Light</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'login' %}" class="logout"><i class="bx bx-log-out-circle"></i>Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Sidebar End -->
+        <!-- navbar starts -->
+        <div class="navbar">
+            <nav>
+                <i class="bx bx-menu"></i>
+                <a href="" class="profile">
+                    <span>{{fname}} {{lname}}</span>
+                </a>
+            </nav>
+            <!-- navbard ends -->
+        </div>
+    </header>
+
+    <main>
+        {%block content%}
+
+        {%endblock%}
+
+    </main>
+    <link rel="stylesheet" href="{% static 'css/admin-pages.css' %}">
+    <script src="{%  static 'js/admin-dashboard.js'  %}"></script> 
+</body>
+
+</html>
