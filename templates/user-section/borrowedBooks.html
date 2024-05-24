@@ -2,7 +2,7 @@
 <html lang="en">
     {% load static %}
     <head>
-        {% comment %} <link rel="shortcut icon" type="x-icon" href="../assets/parthenon-svgrepo-com (1).svg"> {% endcomment %}
+        <link rel="shortcut icon" type="x-icon" href="{% static 'images/icon.svg' %}">
         {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> {% endcomment %}
         <link rel="stylesheet" href="{% static 'css/borrowedBooks.css' %}">
         <meta charset="UTF-8">
@@ -78,11 +78,19 @@
             </div>
         
         </div>
+        <div id="user-id" data-user-id="{{ userID }}"></div>
+        <div id="pics">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+        </div>
 
 
-
-        {% comment %} <script src="{% static 'js/borrowedBooks.js' %}"></script> {% endcomment %}
-        
+        <script src="{% static 'js/borrowedBooks.js' %}"></script>
+        {% comment %} <script>
+            fetch(`/getBooks/`).then(response=>response.json())
+        </script>         {% endcomment %}
     </body>
 
 </html>
