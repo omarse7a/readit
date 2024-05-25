@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from authentication.models import Profile
 from django.contrib.auth.models import User
 from manageBooks.models import Book , Borrowed
+from django.contrib.auth import logout
+from django.db.models import Sum
 
 @login_required
 def dashboard(request):
@@ -16,10 +18,14 @@ def dashboard(request):
 
             published_num = Book.objects.count()
             borrowed_num = Borrowed.objects.count()
-            earnings = borrowed_num * 20 
+            earnings = Borrowed.objects.aggregate(total_earnings=Sum('book__price'))['total_earnings']
             most_borrowed_book = Book.objects.order_by('-borrowed_copies').first()
-            most_borrowed_title = most_borrowed_book.title
-            most_borrowed_image = most_borrowed_book.cover
+            if most_borrowed_book:
+                most_borrowed_title = most_borrowed_book.title
+                most_borrowed_image = most_borrowed_book.cover
+            else:
+                most_borrowed_title = None
+                most_borrowed_image = None
 
             return render(request, 'admin-section/admin-dashboard.html', {
                 'fname': fname,
@@ -45,3 +51,7 @@ def addBooks(request):
     except Profile.DoesNotExist:
         return redirect('home')
 
+
+def user_logout(request):
+    logout(request)
+    return redirect('home')
