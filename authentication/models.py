@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     ROLE_CHOICES = (
-        ('Publisher', 'Publisher'),
+        ('Admin', 'Admin'),
         ('Customer', 'Customer'),
     )
 

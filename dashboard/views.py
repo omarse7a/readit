@@ -9,7 +9,7 @@ def dashboard(request):
     try:
         profile = Profile.objects.get(user=request.user)
         role = profile.role
-        if role == 'Publisher':
+        if role == 'Admin':
             user = request.user
             fname = user.first_name 
             lname = user.last_name
@@ -42,7 +42,7 @@ def addBooks(request):
         role = profile.role
         user = request.user
         name = user.first_name 
-        if role == 'Publisher':
+        if role == 'Admin':
             return render(request, 'admin-section/add-books.html' ,{'name': name})
         elif role == 'Customer':
             return redirect('home')

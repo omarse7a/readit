@@ -87,11 +87,25 @@ def login(request):
 
         if user is not None:
             auth_login(request, user)
-            messages.success(request, "You are now logged in")
-            return render(request, "home.html", {'FirstName': user.first_name, 'LastName': user.last_name})
+            # Force evaluation of request.user
+            user = request.user
+            try:
+                profile = Profile.objects.get(user=user)
+                role = profile.role
+
+                if role == 'Customer':
+                        return render(request, "home.html", {'FirstName': user.first_name, 'LastName': user.last_name})
+                else:
+                    return render(request, 'admin-section/admin-dashboard.html', {'FirstName': user.first_name, 'LastName': user.last_name})
+            except Profile.DoesNotExist:
+                messages.error(request, "Profile does not exist")
+                return redirect("login")
+
         else:
             messages.error(request, "Invalid Credentials")
             return redirect("login")
+
+
 
     return render(request, "login.html")
 
