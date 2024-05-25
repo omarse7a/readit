@@ -2,70 +2,70 @@
 
 {% block headarea %}
 
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/book_details_style.css' %}">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/book_details_style.css' %}">
 
 {% endblock headarea %}
 
 {% block navlist %}
-<li><a href="{% url 'view_books' %}">View books</a></li>
-<li><a href="../User Section/borrowed-books.html">Dashboard</a></li>
+    <li><a href="{% url 'view_books' %}">View books</a></li>
+    <li><a href="../User Section/borrowed-books.html">Dashboard</a></li>
 {% endblock navlist %}
 
 {% block content %}
 
-<div class="container">
-    <section id="main-sec">
-        <div class="book-cover">
-            <img src="{{book.cover.url}}" alt="{{book.title}} cover">
-        </div>
-        <div class="book-data">
-            <h1>{{book.title}}</h1>
-            <div>
-                <label><strong>Author:</strong></label>
-                <p> {{book.author}}</p>
+    <div class="container">
+        <section id="main-sec">
+            <div class="book-cover">
+                <img src="{{ book.cover.url }}" alt="{{ book.title }} cover">
             </div>
-            <div>
-                <label><strong>Category:</strong></label>
-                <p> {{book.category}}</p>
-            </div>
-            <div>
-                <label><strong>Number of pages:</strong></label>
-                <p> {{book.no_of_pages}}</p>
-            </div>
-            <div>
-                <label><strong>Language:</strong></label>
-                <p> {{book.language}}</p>
-            </div>
-            <div>
-                <label><strong>Description:</strong></label>
-                <p>{{book.description}}</p>
-            </div>
-            {% if request.user.is_authenticated %}
-            {% if book_borrowed %}
-            <div class="return">
-                <form method="post" action="{% url 'return' book.id %}">
-                    {% csrf_token %}
-                    <button class="button">Return</button>
-                    <p>Status: <small>You have it</small></p>
-                </form>
-            </div>
-            {% else %}
-            <div class="rent">
-                <form method="post" action="{% url 'borrow' book.id %}">
-                    {% csrf_token %}
-                    <button class="button">Borrow</button>
-                    {% if book.copies > book.borrowed_copies %}
-                    <p>Status: <small class="available">Available</small></p>
+            <div class="book-data">
+                <h1>{{ book.title }}</h1>
+                <div>
+                    <label><strong>Author:</strong></label>
+                    <p> {{ book.author }}</p>
+                </div>
+                <div>
+                    <label><strong>Category:</strong></label>
+                    <p> {{ book.category }}</p>
+                </div>
+                <div>
+                    <label><strong>Number of pages:</strong></label>
+                    <p> {{ book.no_of_pages }}</p>
+                </div>
+                <div>
+                    <label><strong>Language:</strong></label>
+                    <p> {{ book.language }}</p>
+                </div>
+                <div>
+                    <label><strong>Description:</strong></label>
+                    <p>{{ book.description }}</p>
+                </div>
+                {% if request.user.is_authenticated %}
+                    {% if book_borrowed %}
+                        <div class="return">
+                            <form method="post" action="{% url 'return' book.id %}">
+                                {% csrf_token %}
+                                <button class="button">Return</button>
+                                <p>Status: <small>You have it</small></p>
+                            </form>
+                        </div>
                     {% else %}
-                    <p>Status: <small class="unavailable">Unavailable</small></p>
+                        <div class="rent">
+                            <form method="post" action="{% url 'borrow' book.id %}">
+                                {% csrf_token %}
+                                <button class="button">Borrow</button>
+                                {% if book.copies > book.borrowed_copies %}
+                                    <p>Status: <small class="available">Available</small></p>
+                                {% else %}
+                                    <p>Status: <small class="unavailable">Unavailable</small></p>
+                                {% endif %}
+                            </form>
+                        </div>
                     {% endif %}
-                </form>
+                {% endif %}
             </div>
-            {% endif %}
-            {% endif %}
-        </div>
-    </section>
-</div>
-<!-- <script src="{% static 'js/book_details.js' %}"></script> -->
+        </section>
+    </div>
+    <!-- <script src="{% static 'js/book_details.js' %}"></script> -->
 {% endblock content %}

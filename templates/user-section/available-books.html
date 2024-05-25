@@ -2,65 +2,65 @@
 
 {% block headarea %}
 
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/available-books.css' %}"">
-<script src=" https://unpkg.com/swiper/swiper-bundle.min.js">
-</script>
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/available-books.css' %}">
+    <script src=" https://unpkg.com/swiper/swiper-bundle.min.js">
+    </script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
 {% endblock headarea %}
 
 {% block navlist %}
-<li><a href="{% url 'view_books' %}">View books</a></li>
-<li><a href="Admin Section/admin-dashboard.html">Dashboard</a></li>
+    <li><a href="{% url 'view_books' %}">View books</a></li>
+    <li><a href="Admin Section/admin-dashboard.html">Dashboard</a></li>
 {% endblock navlist %}
 
 
 
 {% block content %}
 
-<section>
-    <h1 class="heading"> <span>Available Books</span></h1>
-    <div class="swiper featured-slider">
-        <div class="swiper-wrapper">
-            {% for book in books %}
-            <div class="swiper-slide">
-                <div class="box">
-                    <div class="icons">
-                        <a href="{% url 'book' book.id %}" class="fas fa-eye" data-book-id="{{book.id}}"></a>
+    <section>
+        <h1 class="heading"><span>Available Books</span></h1>
+        <div class="swiper featured-slider">
+            <div class="swiper-wrapper">
+                {% for book in books %}
+                    <div class="swiper-slide">
+                        <div class="box">
+                            <div class="icons">
+                                <a href="{% url 'book' book.id %}" class="fas fa-eye" data-book-id="{{ book.id }}"></a>
+                            </div>
+                            <div class="image">
+                                <img src="{{ book.cover.url }}" alt="{{ book.title }} Cover">
+                            </div>
+                            <div class="content">
+                                <div class="author+title">
+                                    <h3>{{ book.title }}</h3>
+                                    <h3 id="author">by {{ book.author }}</h3>
+                                </div>
+                                <div class="price">
+                                    {{ book.price }} EGP
+                                </div>
+                                {% if book.copies > book.borrowed_copies %}
+                                    <div class="status" status="Available">
+                                        Available
+                                    </div>
+                                {% else %}
+                                    <div class="status" status="Unavailable">
+                                        Unavailable
+                                    </div>
+                                {% endif %}
+                                <!-- <a href="#" class="btn">Add to list</a> -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="image">
-                        <img src="{{book.cover.url}}" alt="{{book.title}} Cover">
-                    </div>
-                    <div class="content">
-                        <div class="author+title">
-                            <h3>{{book.title}}</h3>
-                            <h3 id="author">by {{book.author}}</h3>
-                        </div>
-                        <div class="price">
-                            {{book.price}} EGP
-                        </div>
-                        {% if book.copies > book.borrowed_copies %}
-                        <div class="status" status="Available">
-                            Available
-                        </div>
-                        {% else %}
-                        <div class="status" status="Unavailable">
-                            Unavailable
-                        </div>
-                        {% endif %}
-                        <!-- <a href="#" class="btn">Add to list</a> -->
-                    </div>
-                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
-    </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-</section>
-<script src="{% static 'js/available-books.js' %}"></script>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </section>
+    <script src="{% static 'js/available-books.js' %}"></script>
 
 {% endblock content %}
