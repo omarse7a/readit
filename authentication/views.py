@@ -100,7 +100,7 @@ def login(request):
                 if role == 'Customer':
                         return render(request, "home.html", {'FirstName': user.first_name, 'LastName': user.last_name})
                 else:
-                    return render(request, 'admin-section/admin-dashboard.html', {'FirstName': user.first_name, 'LastName': user.last_name})
+                    return redirect('dashboard')
             except Profile.DoesNotExist:
                 messages.error(request, "Profile does not exist")
                 return redirect("login")

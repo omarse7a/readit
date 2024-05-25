@@ -22,9 +22,7 @@
                 <li><a href="{% url 'view_books' %}">All Books</a></li>
                 <li><a href="{% url 'logout' %}" class="sign-in-btn">Log out</a></li>
             {% else %}
-                <li><a href="{% url 'view_books' %}">All Books</a></li>
                 <li><a href="{% url 'login' %}" class="sign-in-btn">Log in</a></li>
-
                 <li><a href="{% url 'signup' %}" class="sign-in-btn">Sign up</a></li>
             {% endif %}
         </ul>
