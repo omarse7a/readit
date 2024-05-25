@@ -24,6 +24,8 @@ def home(request):
 
 
 def signup(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     if request.method == "POST":
         username = request.POST['Username']
         password = request.POST['Password']
@@ -79,6 +81,8 @@ def signup(request):
 
 
 def login(request):
+    if request.user.is_authenticated:  # Check if the user is already logged in
+        return redirect('home')
     if request.method == "POST":
         username = request.POST['Username']
         password = request.POST['Password']
