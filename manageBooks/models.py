@@ -15,6 +15,9 @@ class Book(models.Model):
         ('Drama', 'Drama'),
         ('History', 'History'),
         ('Science', 'Science'),
+        ('Romance', 'Romance'),
+        ('Fiction', 'Fiction'),
+        ('Dystopian', 'Dystopian'),
     ]
     LANGUAGE_CHOICES = [
         ('English', 'English'),
