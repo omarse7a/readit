@@ -329,3 +329,14 @@ meter::-webkit-meter-even-less-good-value {
     cursor: not-allowed;
     transform: scale(1.0);
   }
+
+.fa-star, .fa-star-half-o {
+    color: gold;
+    font-size: 20px; /* Adjust size as needed */
+}
+.checked {
+    color: orange;
+}
+.rating .fa {
+    display: inline-block;
+}

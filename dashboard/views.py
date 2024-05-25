@@ -60,7 +60,7 @@ def addBooks(request):
 def add_book(request):
    if request.method == "POST":
         title = request.POST.get("title")
-        cover = request.FILES.get("cover")
+        cover = request.FILES
         author = request.POST.get("author")
         category = request.POST.get("category")
         no_of_pages = request.POST.get("no_of_pages")

@@ -1,5 +1,7 @@
 from django.db import models
 from authentication.models import Profile, User
+from django import forms
+
 
 # Create your models here.
 
@@ -36,6 +38,8 @@ class Book(models.Model):
     price = models.DecimalField(max_digits=4, decimal_places=2)
     copies = models.IntegerField(default=1)
     borrowed_copies = models.IntegerField(default=0)
+    reviews = models.IntegerField(default=0)
+    ratings = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
 
     def __str__(self):
         return self.title
@@ -48,3 +52,5 @@ class Borrowed(models.Model):
         return f"{self.user.username} borrowed {self.book.title}" #self.user.user.username
     class Meta:
         verbose_name = 'borrowed book'
+
+    

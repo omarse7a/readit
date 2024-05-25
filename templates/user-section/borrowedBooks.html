@@ -19,8 +19,9 @@
                 <li><a href="{% url 'view_books'%}">View books</a></li>
                 <!-- <li><a href="../Admin Section/admin-dashboard.html">Dashboard</a></li> -->
                 <li>
-                    <a class="img-link" href="{% url 'login' %}">
-                        <img src="{% static 'images/profile.svg' %}" class="user-profile" alt="Profile">
+                    <a href="{% url 'logout' %}">
+                        {% comment %} <img src="{% static 'images/profile.svg' %}" class="user-profile" alt="Profile"> {% endcomment %}
+                        Log Out
                     </a>
                 </li>
             </ul>
@@ -38,7 +39,7 @@
             </div>
         
             <div class="analytics">
-                <h2 id="analytic-title">Your Weekly Progress</h2>
+                {% comment %} <h2 id="analytic-title">Your Weekly Progress</h2>
                 <div class="metrics">
                     <div class="progress-item">
                         <span class="progress-label">Books Rented:</span> 
@@ -68,7 +69,7 @@
                             <span class="meter-value">60% (2k+)</span>
                         </div>
                     </div>
-                </div>
+                </div> {% endcomment %}
             </div>
             
             <div class="books-for-you">
@@ -85,7 +86,7 @@
             <img src="" alt="">
             <img src="" alt="">
         </div>
-
+        
 
         <script src="{% static 'js/borrowedBooks.js' %}"></script>
         {% comment %} <script>
