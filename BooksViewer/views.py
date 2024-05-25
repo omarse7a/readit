@@ -4,19 +4,23 @@ from manageBooks.models import Book, Borrowed
 from django.contrib.auth.decorators import login_required
 from authentication.models import Profile
 # Create your views here.
-@login_required
+
 def view_books(request):
-    try:
-        profile = Profile.objects.get(user=request.user)
-        role = profile.role
-        if role == 'Customer':
-            user = request.user
-            fname = user.first_name 
-            lname = user.last_name
-            return render(request, "user-section/available-books.html", {"books": Book.objects.all(), 'fname': fname,
-                'lname': lname,})
-    except Profile.DoesNotExist:
-        return redirect('home')
+    if request.user.is_authenticated:
+        try:
+            profile = Profile.objects.get(user=request.user)
+            role = profile.role
+            if role == 'Customer':
+                user = request.user
+                fname = user.first_name
+                lname = user.last_name
+                return render(request, "user-section/available-books.html", {"books": Book.objects.all(), 'fname': fname,
+                    'lname': lname,})
+        except Profile.DoesNotExist:
+            return redirect('home')
+    else:
+        # For anonymous users, render the available books without any user-specific information
+        return render(request, "user-section/available-books.html", {"books": Book.objects.all()})
 
 def book_details(request, book_id):
     book = Book.objects.get(id=book_id)
