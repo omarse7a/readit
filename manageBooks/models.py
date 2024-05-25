@@ -5,6 +5,7 @@ from authentication.models import Profile, User
 
 class Book(models.Model):
     CATEGORY_CHOICES = [
+        ('Any', 'Any'), 
         ('Adventure', 'Adventure'), 
         ('Science fiction', 'Science fiction'),
         ('Thriller', 'Thriller'),
