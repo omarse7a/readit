@@ -69,7 +69,7 @@ function handleBookData(){
                             <p id="recommended-title"><a href="../books/book/${recommendedBook.id}">${recommendedBook.title}</a></p>
                             <p id="recommended-author">By: ${recommendedBook.author}</p>
                             <div id="recommended-ratings">
-                                <p>219 reviews • 504 ratings </p>
+                                <p>${recommendedBook.reviews} reviews • ${recommendedBook.ratings} ratings </p>
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star checked"></span>
@@ -79,7 +79,6 @@ function handleBookData(){
                             <p id="available">Status: <span id="stock">Available</span></p>
                             <p id="price">Renting Price: <span>${recommendedBook.price}</span></p>
                             <div id="actions">
-                                <button id="rentButton">Rent</button>
                                 <button id="viewDetails">View Book</button>
                             </div>
                         </div>`;
@@ -89,62 +88,111 @@ function handleBookData(){
     let booksOfSpecificUser = borrowedbooksArray.filter(book => book.user_id == userID);
     console.log("Array: ", booksOfSpecificUser);
 
-    let book1ID = booksOfSpecificUser[0].book_id;
-    let book2ID = booksOfSpecificUser[1].book_id;
-    let book3ID = booksOfSpecificUser[2].book_id;
-    let book1 = booksArray.filter(book=>book.id == book1ID)[0];
-    let book2 = booksArray.filter(book=>book.id == book2ID)[0];
-    let book3 = booksArray.filter(book=>book.id == book3ID)[0];
+    // let book1ID = booksOfSpecificUser[0].book_id;
+    // let book2ID = booksOfSpecificUser[1].book_id;
+    // let book3ID = booksOfSpecificUser[2].book_id;
+    // let book1 = booksArray.filter(book=>book.id == book1ID)[0];
+    // let book2 = booksArray.filter(book=>book.id == book2ID)[0];
+    // let book3 = booksArray.filter(book=>book.id == book3ID)[0];
     // console.log(book1);
     // console.log(book2);
     // console.log(book3);       
+    function generateStars(rating) {
+        let starsHTML = '';
+        let fullStars = Math.floor(rating);
+        let halfStars = rating % 1 >= 0.5 ? 1 : 0;
+        let emptyStars = 5 - fullStars - halfStars;
     
-    borrowedHTML = `<h2>Recent Borrows</h2>
-                    <div id="book1">
-                        <img src="http://127.0.0.1:8000/media/${book1.cover}" alt="${book1.title}">
-                        <div class="book-description">
-                            <p class="name">${book1.title}</p>
-                            <p class="author">By: ${book1.author}</p>
-                            <div class="rating">
-                                <p>84 reviews • 448 ratings</p>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star-half-o"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                        </div>
-                        </div>
-                        <div id="book2">
-                        <img src="http://127.0.0.1:8000/media/${book2.cover}" alt="${book2.title}">
-                        <div class="book-description">
-                            <p class="name">${book2.title}</p>
-                            <p class="author">By: ${book2.author}</p>
-                            <div class="rating">
-                                <p>40 reviews • 308 ratings</p>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                        </div>
-                        </div>
-                        <div id="book3">
-                        <img src="http://127.0.0.1:8000/media/${book3.cover}" alt="${book3.title}">
-                        <div class="book-description">
-                            <p class="name">${book3.title}</p>
-                            <p class="author">By: ${book3.author}</p>
-                            <div class="rating">
-                                <p>16 reviews • 124 ratings </p>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star-half-o"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                        </div>  
-                    </div>`;
+        // Add full stars
+        for (let i = 0; i < fullStars; i++) {
+            starsHTML += '<span class="fa fa-star checked"></span>';
+        }
+        // Add half star if needed
+        if (halfStars) {
+            starsHTML += '<span class="fa fa-star-half-o checked"></span>';
+        }
+        // Add empty stars
+        for (let i = 0; i < emptyStars; i++) {
+            starsHTML += '<span class="fa fa-star"></span>';
+        }
+    
+        return starsHTML;
+    }
+
+
+    let borrowedHTML = `<h2>Recent Borrows</h2>`
+    if (booksOfSpecificUser.length === 0) {
+        borrowedHTML += `<p>No borrowed books.</p>`;
+    } 
+    else {
+        // Loop through the borrowed books and create HTML for each
+        let ctr = 3;
+        for (let i = booksOfSpecificUser.length - 1; i >= 0; i-- && ctr--) {
+            let bookID = booksOfSpecificUser[i].book_id;
+            let book = booksArray.filter(book => book.id == bookID)[0];
+    
+            borrowedHTML += `<div id="book${i + 1}">
+                                <img src="http://127.0.0.1:8000/media/${book.cover}" alt="${book.title}">
+                                <div class="book-description">
+                                    <p class="name">${book.title}</p>
+                                    <p class="author">By: ${book.author}</p>
+                                    <div class="rating">
+                                        <p>${book.reviews} reviews • ${book.ratings} ratings</p>
+                                        ${generateStars(book.ratings)}
+                                    </div>
+                                </div>
+                            </div>`;
+        }
+    }
+
+    
+
+    // borrowedHTML = `
+    //                 <div id="book1">
+    //                     <img src="http://127.0.0.1:8000/media/${book1.cover}" alt="${book1.title}">
+    //                     <div class="book-description">
+    //                         <p class="name">${book1.title}</p>
+    //                         <p class="author">By: ${book1.author}</p>
+    //                         <div class="rating">
+    //                             <p>84 reviews • 448 ratings</p>
+    //                             <span class="fa fa-star checked"></span>
+    //                             <span class="fa fa-star checked"></span>
+    //                             <span class="fa fa-star checked"></span>
+    //                             <span class="fa fa-star-half-o"></span>
+    //                             <span class="fa fa-star"></span>
+    //                         </div>
+    //                     </div>
+    //                     </div>
+    //                     <div id="book2">
+    //                     <img src="http://127.0.0.1:8000/media/${book2.cover}" alt="${book2.title}">
+    //                     <div class="book-description">
+    //                         <p class="name">${book2.title}</p>
+    //                         <p class="author">By: ${book2.author}</p>
+    //                         <div class="rating">
+    //                             <p>40 reviews • 308 ratings</p>
+    //                             <span class="fa fa-star checked"></span>
+    //                             <span class="fa fa-star checked"></span>
+    //                             <span class="fa fa-star checked"></span>
+    //                             <span class="fa fa-star"></span>
+    //                             <span class="fa fa-star"></span>
+    //                         </div>
+    //                     </div>
+    //                     </div>
+    //                     <div id="book3">
+    //                     <img src="http://127.0.0.1:8000/media/${book3.cover}" alt="${book3.title}">
+    //                     <div class="book-description">
+    //                         <p class="name">${book3.title}</p>
+    //                         <p class="author">By: ${book3.author}</p>
+    //                         <div class="rating">
+    //                             <p>16 reviews • 124 ratings </p>
+    //                             <span class="fa fa-star checked"></span>
+    //                             <span class="fa fa-star checked"></span>
+    //                             <span class="fa fa-star-half-o"></span>
+    //                             <span class="fa fa-star"></span>
+    //                             <span class="fa fa-star"></span>
+    //                         </div>
+    //                     </div>  
+    //                 </div>`;
     document.querySelector(".recent-borrows").innerHTML = borrowedHTML;
     
     const RbookDetailsURL = `../books/book/${recommendedBook.id}`;
@@ -156,38 +204,14 @@ function handleBookData(){
     
     var stockSpan = document.getElementById("stock");
     var rentButton = document.getElementById("rentButton");
+
+    
     
     // console.log(recommendedBook.title);
     // console.log(book1.title);
     // console.log(book2.title);
     // console.log(book3.title);
     // console.log(recommendedBook.title == book1[0].title || recommendedBook.title == book2[0].title || recommendedBook.title == book3[0].title);
-    if(recommendedBook.title == book1.title || recommendedBook.title == book2.title || recommendedBook.title == book3.title){
-        console.log("happened");
-        rentButton.disabled = true;
-    }
-    if(rentButton.disabled){
-        stockSpan.textContent = "Out of Stock";
-            stockSpan.style.color = "red";
     
-            // Disable the button
-            rentButton.disabled = true;
-            // Grey out the button (optional)
-            rentButton.style.opacity = "0.5";
-    }
-    else{
-
-        rentButton.addEventListener("click", function () {
-            if (!rentButton.disabled) {
-                // Change the text content and style of the span
-                stockSpan.textContent = "Out of Stock";
-                stockSpan.style.color = "red";
-                
-                // Disable the button
-                rentButton.disabled = true;
-                // Grey out the button (optional)
-                rentButton.style.opacity = "0.5";
-            }
-        });
-    }
+    
 }
