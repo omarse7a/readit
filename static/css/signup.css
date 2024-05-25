@@ -222,51 +222,5 @@ ion-icon {
     margin-right: 5px;
 }
 
-.message-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 600px;
-    width: 100%;
-}
-
-.alert-custom-success {
-    background-color: #d4edda;
-    color: #155724;
-    border-color: #c3e6cb;
-}
-
-.alert-custom-danger {
-    background-color: #f8d7da;
-    color: #721c24;
-    border-color: #f5c6cb;
-}
-
-#signup-form #password-strength {
-    font-weight: bold;
-    margin-left: 10px;
-    position: relative;
-    left: -20px; /* Adjust this value to move the message left */
-}
-
-#signup-form .strength-very-strong {
-    color: green;
-}
-
-#signup-form .strength-strong {
-    color: blue;
-}
-
-#signup-form .strength-moderate {
-    color: orange;
-}
-
-#signup-form .strength-weak {
-    color: red;
-}
-
-#signup-form .strength-too-short {
-    color: darkred;
-}
 
 

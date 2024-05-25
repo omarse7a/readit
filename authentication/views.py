@@ -40,11 +40,14 @@ def is_valid_email(email):
 # Create your views here.
 
 def home(request):
-    user = request.user
-    profile = Profile.objects.get(user=user)
-    role = profile.role
-    if role == "Admin":
-        return redirect('dashboard')
+    try:
+        user = request.user
+        profile = Profile.objects.get(user=user)
+        role = profile.role
+        if role == "Admin":
+            return redirect('dashboard')
+    except:
+        return redirect('home')
     return redirect('home')
 
 
