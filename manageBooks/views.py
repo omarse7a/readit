@@ -10,7 +10,7 @@ def book_manager(request):
     try:
         profile = Profile.objects.get(user=request.user)
         role = profile.role
-        if role == 'Publisher':
+        if role == 'Admin':
             user = request.user
             fname = user.first_name 
             lname = user.last_name
@@ -24,7 +24,7 @@ def book_details(request, book_id):
     try:
         profile = Profile.objects.get(user=request.user)
         role = profile.role
-        if role == 'Publisher':
+        if role == 'Admin':
             user = request.user
             fname = user.first_name 
             lname = user.last_name
