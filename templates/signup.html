@@ -4,13 +4,53 @@
     {% load static %}
     <link rel="shortcut icon" type="x-icon" href="{% static 'images/icon.svg' %}">
     {% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> {% endcomment %}
-    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <style>
+        #msg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 500px;
+            width: 100%;
+            padding: 20px; /* Add padding */
+            border-radius: 10px; /* Add rounded edges */
+            background-color: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+            margin: auto;
+        }
 
+        #signup-form #password-strength {
+            font-weight: bold;
+            margin-left: 10px;
+            position: relative;
+            left: 20px; /* Adjust this value to move the message left */
+        }
+
+        #signup-form .strength-very-strong {
+            color: green;
+        }
+
+        #signup-form .strength-strong {
+            color: blue;
+        }
+
+        #signup-form .strength-moderate {
+            color: orange;
+        }
+
+        #signup-form .strength-weak {
+            color: red;
+        }
+
+        #signup-form .strength-too-short {
+            color: darkred;
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up | ReadIt</title>
 
-    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 </head>
 <body>
 <nav>
@@ -20,14 +60,17 @@
 </nav>
 <div class="message-box">
     {% for message in messages %}
-        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-            <strong> Message: </strong> {{ message }}
+
+        <div id="msg" class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong> Message:   </strong> {{ message }}      
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+                <span aria-hidden="true">    &times;    </span>
             </button>
         </div>
+
     {% endfor %}
 </div>
+
 
 {% load static %}
 <div class="mainWindow">
@@ -47,6 +90,7 @@
                 <input type="text" name="Username" placeholder="Username" required>
                 <input type="text" name="Email" id="email" placeholder="Email" required>
                 <input type="password" name="Password" id="password" placeholder="Password" required>
+                <span id="password-strength" class="password-strength"></span>
                 <input type="password" name="ConfirmPassword" placeholder="Confirm Password" required>
                 <div class="radio">
                     <input class="radio-input" type="radio" value="Admin" name="user-type" id="Admin">
@@ -60,7 +104,6 @@
                 </div>
                 <input id="submit" type="submit">
                 <br>
-                <span id="error-messages"></span>
             </form>
 
 
@@ -84,6 +127,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/signup.js' %}"></script>
+
 
 </div>
 </body>

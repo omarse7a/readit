@@ -5,8 +5,28 @@ from django.contrib.auth import authenticate, logout as auth_logout, login as au
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import Profile
+from django.http import JsonResponse
 import re
 
+def check_password_strength(request):
+    password = request.GET.get('password', '')
+
+    # Define a simple password strength checker
+    def password_strength(password):
+        if len(password) < 8:
+            return 'Too short'
+        if not re.search("[a-z]", password):
+            return 'Weak'
+        if not re.search("[A-Z]", password):
+            return 'Moderate'
+        if not re.search("[0-9]", password):
+            return 'Moderate'
+        if not re.search("[!@#$%^&*()_+]", password):
+            return 'Strong'
+        return 'Very strong'
+
+    strength = password_strength(password)
+    return JsonResponse({'strength': strength})
 
 def is_valid_email(email):
     # Regular expression pattern for a valid email address
@@ -108,8 +128,6 @@ def login(request):
         else:
             messages.error(request, "Invalid Credentials")
             return redirect("login")
-
-
 
     return render(request, "login.html")
 
