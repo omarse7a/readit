@@ -6,11 +6,11 @@ from dashboard import views as dashboard_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('authentication.urls')),
+    path('authentication/', include('authentication.urls')),
     path('book-manager/', include('manageBooks.urls')),
     path('dashboard/', dashboard_views.dashboard, name='dashboard'),  
     path('add-books/', dashboard_views.addBooks, name='addbooks'),  
     path('books/', include('BooksViewer.urls')),
-    path('home/', include('home.urls')),
+    path('', include('home.urls')),
     path('borrowed-books/', include('borrowedBooks.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

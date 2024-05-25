@@ -1,7 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+from authentication.models import Profile
 from manageBooks.models import Book 
 # Create your views here.
 def home(request):
+    try:
+        user = request.user
+        profile = Profile.objects.get(user=user)
+        role = profile.role
+        if role == "Admin":
+            return redirect('dashboard')
+    except:
+        return render(request,'home.html')
     query = request.GET.get('q')
     results = []
     if query:

@@ -40,7 +40,12 @@ def is_valid_email(email):
 # Create your views here.
 
 def home(request):
-    return render(request, "home.html")
+    user = request.user
+    profile = Profile.objects.get(user=user)
+    role = profile.role
+    if role == "Admin":
+        return redirect('dashboard')
+    return redirect('home')
 
 
 def signup(request):
@@ -118,7 +123,7 @@ def login(request):
                 role = profile.role
 
                 if role == 'Customer':
-                        return render(request, "home.html", {'FirstName': user.first_name, 'LastName': user.last_name})
+                        return redirect('home')
                 else:
                     return redirect('dashboard')
             except Profile.DoesNotExist:
