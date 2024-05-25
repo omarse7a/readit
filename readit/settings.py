@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'BooksViewer.apps.BooksViewerConfig',
     'authentication.apps.AuthConfig',
     'home.apps.HomeConfig',
-    
+    'borrowedBooks.apps.BorrowedbooksConfig',
 ]
 
 MIDDLEWARE = [
