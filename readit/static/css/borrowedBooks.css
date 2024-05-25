@@ -1,0 +1,331 @@
+:root {
+    --dark :#1a1a1a;
+    --light:#f1ede4;
+}
+body {
+    margin: 0;
+    background-color: #f1ede4;
+}
+.dark-body {
+    margin: 0;
+    background-color: #1a1a1a;
+}
+nav {
+    /* background:radial-gradient(#f1ede4, #fff); */
+    background: #3d3d61e0 ;
+    /* background: #eee8dcd6 ; */
+    /* background: #fff; */
+    height:70px;
+    display: flex;
+    justify-content: space-between;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px;
+    display: inline-flex;
+}
+nav ul li {
+    display: inline;
+}
+nav ul li a {
+    display: inline-block;
+    padding: 10px;
+    color: #f1ede4;
+    font-size: 20px;
+    font-family:'Helvetica Neue', Ubuntu, Cantarell;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 7px;
+}
+#home{
+    font-size: 30px;
+    margin-left: 10px;
+    margin-top: 0;
+    padding-top: 5px;
+    color: #f1ede4;
+}
+#home:hover {
+    color: #474747;
+    transform: scale(1.05);
+    transition:0.3s ease;
+}
+nav ul li a:hover {
+    color: #1616167a;
+    transition:0.3s ease;
+}
+
+.user-profile {
+    height: 40px;
+    margin: 30px ;
+    margin-top: 0;
+}
+.img-link {
+    padding: 0;
+}
+.user-profile:hover {
+    height:40px;
+    /* transform: translateY(2px); */
+    transform: scale(1.1,1.1);
+    transition: transform 0.3s ease;
+}
+/* .sub-menu-wrap {
+    position: absolute;
+    top: 10%;
+    right: 20%;
+    width: 50px;
+}
+.sub-menu img {
+    height: 60px;
+}
+.sub-menu h2 {
+    font-size: 20px;
+}
+.sub-menu {
+    background: #ffffffe3;
+    padding: 20px;
+    margin: 10px;
+    width: 250px;
+    display:flex;
+    justify-content: space-between;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+} */
+
+.main-dashboard {
+    padding: 3%;
+    padding-top: 1%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.recent-borrows {
+    width: 60%;
+    display: flex;
+    flex-direction:column ;
+}
+.recent-borrows div {
+    margin: 2px;
+    /* border: #474747 4px solid; */
+    background-color: #556871;
+    border-radius: 10px;
+    padding-bottom: 0;
+    display: flex;
+}
+.recent-borrows div img {
+    height:140px;
+    width: 100px;
+    /* width: fit-content; */
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    margin-bottom: 0;
+    margin-right: 30px;
+    margin-top: 2px;
+}
+.recent-borrows div p {
+    /* font-size: large; */
+    /* font-weight: 600; */
+    color: #fff;
+    font-family:'Helvetica Neue','Open Sans', Cantarell,Ubuntu,Oxygen,   sans-serif;
+} 
+.recent-borrows h2, #recommendation, #analytic-title {
+    color: #55555d;
+}
+.analytics {
+    width: 35%;
+    margin-left: 5%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+}
+.metrics {
+    /* background: #f1ede4; */
+    border-radius: 12px;
+    border-top-left-radius: 8px;
+    width: 85%;
+    margin-top: 0;
+}
+#recommended {
+    display: flex;
+}
+#book4 {
+    height: 400px;
+}
+#recommended p {
+    color: #3e5059;
+    margin-left: 40px;
+}
+
+.progress-item {
+    margin-bottom: 30px;
+}
+.values {
+    display: flex;
+    justify-content: space-between;
+}
+.progress-label, .meter-value {
+    font-weight: bold;
+    color: #57555c;
+}
+.meter-value {
+    margin-top: 8px;
+}
+meter {
+    width: 80%;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    margin-top: 8px;
+}
+meter::-webkit-meter-bar {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+meter::-webkit-meter-optimum-value {
+    background-color: #4CAF50;
+    border-radius: 5px;
+}
+meter::-webkit-meter-suboptimum-value {
+    background-color: #FFD700;
+    border-radius: 5px;
+}
+meter::-webkit-meter-even-less-good-value {
+    background-color: #F44336;
+    border-radius: 5px;
+}
+.book-description, .name {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+.book-description {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.name {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family:'Helvetica Neue', Ubuntu, Cantarell;
+}
+.author {
+    margin:8px;
+    margin-left: 0;
+    font-weight: 400;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+.checked, .fa-star-half-o {
+    color: orange;
+}
+.fa {
+    margin: 0;
+    margin-left: 2px;
+    margin-bottom: 0;
+}
+.rating {
+    display: flex;
+    width: 100%;
+    margin-left: 0;
+}
+.rating p {
+    font-weight: 400;
+    font-size: 12px;
+    font-family:'Helvetica Neue', Ubuntu, Cantarell;
+    margin-right: 4%;
+    margin-top: 0;
+    margin-left: 0;
+}
+#recommended-title {
+    font-weight: 600;
+    font-size: 30px;
+    font-family:'Helvetica Neue', Ubuntu, Cantarell;
+    color: #55555d;
+    margin-bottom: 5px;
+}
+#recommended-title a{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 30px;
+    color: #55555d;
+    font-family:'Helvetica Neue', Ubuntu, Cantarell;
+    margin-bottom: 5px;
+}
+#recommended-title a:visited{
+    text-decoration: none;
+    color: #55555d;
+}
+#recommended-title a:hover {
+    color: #5f5f6985;
+    transition: all 0.3s ease;
+}
+#img-link:hover img{
+    opacity: 0.8;
+    transform: scale(1.010);
+    transition: all 0.3s ease;
+}
+#recommended-author {
+    font-weight: 400;
+    font-size: 20px;
+    font-family:'Helvetica Neue', Ubuntu, Cantarell;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+#recommended-ratings {
+    display: flex;
+}
+#recommended-ratings p {
+    margin-top: 0;
+    margin-right: 20px;
+}
+.unchecked {
+    color: #716d6dcb;
+}
+#available, #price{
+    font-weight: 400;
+    font-size: 15px;
+    font-family:'Helvetica Neue', Ubuntu, Cantarell;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+#available #stock {
+    color: #6dc670;
+    font-weight: 600;
+}
+.unavailable {
+    color: red;
+}
+#price span {
+    font-style: italic;
+    font-weight: 600;
+}
+#actions {
+    margin-left: 35px;
+}
+#actions button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #3d3d61; /* Green */
+    border: none;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+#actions button:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+#rentButton:disabled:hover {
+    cursor: not-allowed;
+    transform: scale(1.0);
+  }
