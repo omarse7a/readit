@@ -30,8 +30,6 @@ def dashboard(request):
                 'most_borrowed_title': most_borrowed_title,
                 'most_borrowed_image': most_borrowed_image,
             })
-        elif role == 'Customer':
-            return redirect('home')
     except Profile.DoesNotExist:
         return redirect('home')
 
@@ -44,8 +42,6 @@ def addBooks(request):
         name = user.first_name 
         if role == 'Admin':
             return render(request, 'admin-section/add-books.html' ,{'name': name})
-        elif role == 'Customer':
-            return redirect('home')
     except Profile.DoesNotExist:
         return redirect('home')
 

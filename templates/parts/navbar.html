@@ -19,7 +19,7 @@
             <li><a href="{% url 'home' %}">Home</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'borrowed-books' %}">Borrowed Books</a></li>
-            <li><a href="{% url 'view_books' %}">Available Books</a></li>
+            <li><a href="{% url 'view_books' %}">View Books</a></li>
             <li><a href="{% url 'logout' %}">Log out</a></li>
             {% else %}
             <li><a href="{% url 'login' %}">Log in</a></li>
