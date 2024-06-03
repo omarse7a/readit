@@ -14,6 +14,12 @@
 body {
     background: var(--gypsum);
     font-family: 'Helvetica Neue', Ubuntu, Cantarell;
+    margin: 0;
+}
+
+.available{
+    width: 90%;
+    margin-left: 10%;
 }
 
 .heading {
@@ -42,7 +48,7 @@ body {
 }
 
 .swiper {
-    margin-left: 350px;
+    /* margin-left: 350px; */
     /* Adjust based on the width of the sidebar */
     transition: margin-left 0.3s ease;
     transform: scale(0.75);
@@ -88,7 +94,7 @@ body {
     /* Set a fixed height for the h3 element */
     margin: 0;
     /* Reset margin to ensure proper alignment */
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .featured-slider .box .content #author {
@@ -107,8 +113,9 @@ body {
 }
 
 .featured-slider .box .content .status {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
+    margin: 20px 0;
 }
 
 .featured-slider .box .content .btn {
@@ -117,7 +124,7 @@ body {
 
 .featured-slider .box {
     height: 100%;
-    margin: 2rem 0;
+    margin-top: 4rem;
     position: relative;
     overflow: hidden;
     border: var(--border);
@@ -145,8 +152,8 @@ body {
 }
 
 .featured-slider .box .image img {
-    height: 25rem;
-    width: 15rem;
+    height: 30rem;
+    width: 19rem;
     border-radius: 1rem;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.7s ease-in-out;

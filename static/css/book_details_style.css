@@ -36,6 +36,9 @@ body{
     margin: 0;
 }
 
+#main-sec .book-data>div{
+    display: flex;
+}
 
 #main-sec .book-data strong {
     color: #3E5158;
@@ -43,7 +46,7 @@ body{
 }
 
 #main-sec .book-data p {
-    display: inline-block;
+    margin-right: 10px;
 }
 
 #main-sec .rent,

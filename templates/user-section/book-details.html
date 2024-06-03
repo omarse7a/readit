@@ -41,6 +41,14 @@
                     <label><strong>Description:</strong></label>
                     <p>{{ book.description }}</p>
                 </div>
+                <div>
+                    <label><strong>Price:</strong></label>
+                    <p>{{ book.price }} EGP</p>
+                    <label><strong>Number of reviews:</strong></label>
+                    <p>{{ book.reviews }}</p>
+                    <label><strong>Rating:</strong></label>
+                    <p>{{ book.ratings }}/100</p>
+                </div>
                 {% if request.user.is_authenticated %}
                     {% if book_borrowed %}
                         <div class="return">

@@ -48,10 +48,18 @@
                     <label><strong>Description:</strong></label>
                     <textarea name="description" class="large-input">{{book.description}}</textarea>
                 </div>
-
                 <div>
                     <label><strong>Price:</strong></label>
-                    <input type="number" name="price" class="small-input" value="{{book.price}}">
+                    <input type="number" name="price" step="0.01" class="small-input" value="{{book.price}}">
+                </div>
+
+                <div>
+                    <label><strong>Number of reviews:</strong></label>
+                    <input type="number" name="reviews"  class="small-input" value="{{book.reviews}}">
+                </div>
+                <div>
+                    <label><strong>Rating:</strong></label>
+                    <input type="number" name="ratings" step="0.01" class="small-input" value="{{book.ratings}}">
                 </div>
 
                 <div>

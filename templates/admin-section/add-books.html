@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="{% static 'css/admin-dashboard.css' %}">
 <main id="main-content">
     <div class="main-content">
-        <form action="{% url 'add' %}" method="post">
+        <form action="{% url 'add' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="header">
                 <h1>Add a new book:</h1>
@@ -65,8 +65,22 @@
                         <span class="info">
                             <p>Price:</p>
                         </span>
-                        <input type="number" name="price" pattern="\d+" title="Please enter a positive number"
-                            class="small-input" min="1">
+                        <input type="number" step="0.01" name="price" pattern="\d+" title="Please enter a positive number"
+                            class="small-input" >
+                    </li>
+                    <li>
+                        <span class="info">
+                            <p>Reviews:</p>
+                        </span>
+                        <input type="number" name="reviews" pattern="\d+" title="Please enter a positive number"
+                            class="small-input">
+                    </li>
+                    <li>
+                        <span class="info">
+                            <p>Ratings:</p>
+                        </span>
+                        <input type="number" step="0.01" name="ratings" pattern="\d+" title="Please enter a positive number"
+                            class="small-input" >
                     </li>
                     <li>
                         <span class="info">

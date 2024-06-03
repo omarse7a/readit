@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from manageBooks.models import Book , Borrowed
 from django.contrib.auth import logout
 from django.db.models import Sum
-from django.core.files.storage import FileSystemStorage
 
 @login_required
 def dashboard(request):
@@ -60,13 +59,15 @@ def addBooks(request):
 def add_book(request):
    if request.method == "POST":
         title = request.POST.get("title")
-        cover = request.FILES
+        cover = request.FILES.get("cover")
         author = request.POST.get("author")
         category = request.POST.get("category")
         no_of_pages = request.POST.get("no_of_pages")
         language = request.POST.get("language")
         description = request.POST.get("description")
         price = request.POST.get("price")
+        reviews = request.POST.get("reviews")
+        rating = request.POST.get("ratings")
         copies = request.POST.get("copies")
 
         new_book = Book(
@@ -78,7 +79,9 @@ def add_book(request):
             language=language,
             description=description,
             price=price,
-            copies=copies
+            copies=copies,
+            reviews=reviews,
+            rating=rating,
         )
         new_book.save()
         return redirect('addbooks')

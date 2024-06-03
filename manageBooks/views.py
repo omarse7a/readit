@@ -50,6 +50,8 @@ def button_clicked(request, book_id):
             book.language = request.POST.get("language")
             book.description = request.POST.get("description")
             book.price = request.POST.get("price")
+            book.reviews = request.POST.get("reviews")
+            book.ratings = request.POST.get("ratings")
             book.copies = request.POST.get("copies")
             book.save()
             return redirect('book_update', book_id=book.id)
