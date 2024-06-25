@@ -52,5 +52,3 @@ class Borrowed(models.Model):
         return f"{self.user.username} borrowed {self.book.title}" #self.user.user.username
     class Meta:
         verbose_name = 'borrowed book'
-
-    

@@ -1,8 +1,14 @@
 body{
     margin: 0;
+    background-color: #EFEDE4;
 }
 
 .container {
+    width: 80%;
+    margin: auto;
+}
+
+.main {
     width: 75%;
     margin-left: 20%;
 }
@@ -11,52 +17,66 @@ body{
 #main-sec {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 50;
+    margin: 50px 0;
     justify-content: space-between;
 }
 
-#main-sec .book-cover {
+#details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.book-cover {
     flex-basis: 30%;
 }
 
-#main-sec .book-cover img {
+.book-cover img {
     height: 600px;
     width: 400px;
     border-radius: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-#main-sec .book-data {
+.book-data {
+    flex-basis: 65%;
+}
+
+.book-info {
     flex-basis: 55%;
 }
 
-#main-sec .book-data h1 {
+.book-info h1,
+.book-data h1 {
     color: #3E5158;
     font-size: 50px;
     margin: 0;
 }
 
-#main-sec .book-data>div{
-    display: flex;
-}
-
-#main-sec .book-data strong {
+.book-info label,
+.book-data label {
     color: #3E5158;
     font-size: 24px;
 }
-
-#main-sec .book-data p {
-    margin-right: 10px;
+.book-info p,
+.book-data p {
+    display: inline-block;
+    font-size: 20px;
 }
 
-#main-sec .rent,
-#main-sec .return,
-#main-sec .alter {
+.quality p{
+    padding-right: 30px;
+}
+
+.rent,
+.return,
+.alter {
     display: flex;
 }
 
 .alter {
     justify-content: center;
+    margin: 25px;
 }
 
 .rent .available {
