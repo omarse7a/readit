@@ -67,7 +67,7 @@ def add_book(request):
         description = request.POST.get("description")
         price = request.POST.get("price")
         reviews = request.POST.get("reviews")
-        rating = request.POST.get("ratings")
+        ratings = request.POST.get("ratings")
         copies = request.POST.get("copies")
 
         new_book = Book(
@@ -81,7 +81,7 @@ def add_book(request):
             price=price,
             copies=copies,
             reviews=reviews,
-            rating=rating,
+            ratings=ratings,
         )
         new_book.save()
         return redirect('addbooks')
