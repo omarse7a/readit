@@ -34,3 +34,8 @@ It supports two types of users: publishers and customers.
   2. **Navigation Bar:**
     - The website has a dynamic navigation bar that adjusts based on the logged-in user's role (admin or user).
     - The navigation bar is accessible from all web pages.
+
+     
+### LIVE DEMO
+ Check out the live demo (only on desktop): [ReadIt Library Management System](https://readitlibrary.pythonanywhere.com)
+
